@@ -1,0 +1,9 @@
+@import './css/entry.css';
+@import './css/gallary.css';
+@import './css/navigator.css';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

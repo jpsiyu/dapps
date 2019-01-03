@@ -1,0 +1,8 @@
+.navigator{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px gray solid;
+    padding-top: 30px;
+    color: gray;
+    font-weight: bold;
+}
