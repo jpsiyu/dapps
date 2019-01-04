@@ -25,7 +25,11 @@ class GallaryItem extends React.Component {
 
     render() {
         return <div className='gallary-item' onClick={this.onClick.bind(this)}>
-            <h1>{this.props.cfg.name}</h1>
+            {
+                this.props.cfg.img
+                    ? <img src='/images/proj-cryto-door.png' />
+                    : <h2>{this.props.cfg.name}</h2>
+            }
         </div>
     }
 

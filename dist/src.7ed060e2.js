@@ -120346,13 +120346,15 @@ var projects = [{
   name: 'Cryto Door',
   target: 'door',
   comp: _cdEntry.default,
-  app: _cdApp.default
+  app: _cdApp.default,
+  img: '/images/proj-cryto-door.png'
 }, {
   id: 2,
   name: '?',
   target: null,
   comp: null,
-  app: null
+  app: null,
+  img: null
 }];
 var _default = {
   projects: projects
@@ -120670,7 +120672,9 @@ function (_React$Component2) {
       return _react.default.createElement("div", {
         className: "gallary-item",
         onClick: this.onClick.bind(this)
-      }, _react.default.createElement("h1", null, this.props.cfg.name));
+      }, this.props.cfg.img ? _react.default.createElement("img", {
+        src: "/images/proj-cryto-door.png"
+      }) : _react.default.createElement("h2", null, this.props.cfg.name));
     }
   }, {
     key: "onClick",
