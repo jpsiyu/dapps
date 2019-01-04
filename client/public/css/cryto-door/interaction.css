@@ -1,0 +1,34 @@
+.interaction{
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.interaction-tool{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.interaction .tool-btn{
+    background-color: yellow;
+    color: gray;
+    padding: 10px 20px;
+}
+
+.interaction .loading{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.interaction .loading img{
+    width: 100px;
+    height: 100px;
+}

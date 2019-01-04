@@ -1,0 +1,32 @@
+@import './drawing-container.css';
+@import './interaction.css';
+@import './owner-me.css';
+@import './owner-none.css';
+@import './owner-other.css';
+@import './mm-guide.css';
+@import './notice.css';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.cryto-door{
+    display: flex;
+    margin: auto;
+    width: 1024px;
+    min-height: 200px;
+    margin-top: 50px;
+    border-bottom: 1px gray solid;
+}
+
+.btn{
+    outline: none;
+    border: none;
+}
+
+ .btn:hover{
+    box-shadow: 3px -3px rgba(0, 0, 0, 0.2);
+}
+

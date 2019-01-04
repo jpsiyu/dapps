@@ -1,6 +1,7 @@
 @import './css/entry.css';
 @import './css/gallary.css';
 @import './css/navigator.css';
+@import './css/cryto-door/cryto-door.css';
 
 *{
     padding: 0;

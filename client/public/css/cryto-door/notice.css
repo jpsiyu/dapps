@@ -1,0 +1,50 @@
+.notice{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice .content{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 80%;
+    height: 50%;
+}
+
+.notice .title{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.notice .msg{
+    flex: 5;
+    padding: 10px;
+    border-bottom: 1px gray solid;
+    border-top: 1px gray solid;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    overflow: scroll;
+}
+
+.notice .ok{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice .n-btn{
+    background-color: blueviolet;
+    color: white;
+    padding: 5px 20px;
+}

@@ -6,22 +6,23 @@ class Navigator extends React.Component {
     }
 
     render() {
-        if (!app.search.target) return this.renderGallary()
-        if (!app.projectCfg) return this.renderGallary()
-        return this.renderProject(app.projectCfg)
-    }
-
-    renderGallary() {
         return <div className='navigator'>
-            <h2>Gallary</h2>
+            <div className='part'>
+                {
+                    app.projCfg
+                        ? <img src='/images/home-icon.png' onClick={this.onHomeClick.bind(this)} />
+                        : null
+                }
+            </div>
+            <div className='part'>
+                <h2>{app.projCfg ? app.projCfg.name : 'Gallary'}</h2>
+            </div>
+            <div className='part'></div>
         </div>
     }
 
-    renderProject(cfg) {
-        return <div className='navigator'>
-            <h2>{cfg.name}</h2>
-        </div>
-
+    onHomeClick() {
+        location.href = location.href.split('?')[0]
     }
 }
 

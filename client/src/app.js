@@ -4,21 +4,32 @@ import config from './config'
 class App {
     constructor() {
         this.search = null
-        this.projectCfg = null
+        this.projCfg = null
     }
 
     init() {
         this.search = qs.parse(location.search)
+        this.setProjCfg()
+        this.setProjApp()
+    }
 
-        if (this.search.target) {
-            for (let i = 0; i < config.projects.length; i++) {
-                const cfg = config.projects[i]
-                if (cfg.target == this.search.target) {
-                    this.projectCfg = cfg
-                    break
-                }
+    setProjCfg() {
+        if (!this.search.target) return
+        for (let i = 0; i < config.projects.length; i++) {
+            const cfg = config.projects[i]
+            if (cfg.target == this.search.target) {
+                this.projCfg = cfg
+                break
             }
         }
+    }
+
+    setProjApp() {
+        if (!this.projCfg) return
+        const AppClass = this.projCfg.app
+        if (!AppClass) return
+        window.projApp = new AppClass()
+        projApp.run()
     }
 }
 
