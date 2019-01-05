@@ -5,9 +5,11 @@ import DrawingController from './drawing/drawing-controller'
 import MetaMask from '../common/metamask'
 import CrytoDoor from './contract/cryto-door'
 import Utils from './utils'
+import ProjApp from '../common/proj-app'
 
-class CDApp {
+class CDApp extends ProjApp {
     constructor() {
+        super()
         this.imageMgr = new ImageMgr()
         const images = this.getDownloadImageList()
         this.imageMgr.setDrawingList(images)

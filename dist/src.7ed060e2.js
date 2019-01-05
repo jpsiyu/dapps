@@ -120107,12 +120107,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0xa094223563ab1b7bded2a882ba96516900930163",
+      "address": "0x3538275bbd81239069a285ea4c7d2537e179c47f",
       "transactionHash": "0x796c513b2f8d5462975122a202421b0a10c94ab5b242fdbf65bd9668e8cdec59"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-04T06:00:10.697Z"
+  "updatedAt": "2019-01-05T02:57:45.515Z"
 };
 },{}],"../src/cryto-door/contract/cryto-door.js":[function(require,module,exports) {
 "use strict";
@@ -120244,7 +120244,40 @@ function () {
 
 var _default = CrytoDoor;
 exports.default = _default;
-},{"truffle-contract":"../../node_modules/truffle-contract/index.js","../../../../truffle/build/contracts/CrytoDoor.json":"../../truffle/build/contracts/CrytoDoor.json","../macro":"../src/cryto-door/macro.js"}],"../src/cryto-door/cd-app.js":[function(require,module,exports) {
+},{"truffle-contract":"../../node_modules/truffle-contract/index.js","../../../../truffle/build/contracts/CrytoDoor.json":"../../truffle/build/contracts/CrytoDoor.json","../macro":"../src/cryto-door/macro.js"}],"../src/common/proj-app.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ProjApp =
+/*#__PURE__*/
+function () {
+  function ProjApp() {
+    _classCallCheck(this, ProjApp);
+  }
+
+  _createClass(ProjApp, [{
+    key: "run",
+    value: function run() {
+      console.log('proj app run');
+    }
+  }]);
+
+  return ProjApp;
+}();
+
+var _default = ProjApp;
+exports.default = _default;
+},{}],"../src/cryto-door/cd-app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -120266,7 +120299,11 @@ var _crytoDoor = _interopRequireDefault(require("./contract/cryto-door"));
 
 var _utils = _interopRequireDefault(require("./utils"));
 
+var _projApp = _interopRequireDefault(require("../common/proj-app"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -120274,25 +120311,46 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 var CDApp =
 /*#__PURE__*/
-function () {
+function (_ProjApp) {
+  _inherits(CDApp, _ProjApp);
+
   function CDApp() {
+    var _this;
+
     _classCallCheck(this, CDApp);
 
-    this.imageMgr = new _imageMgr.default();
-    var images = this.getDownloadImageList();
-    this.imageMgr.setDrawingList(images);
-    this.eventMgr = new _eventMgr.default();
-    this.controller = new _drawingController.default();
-    this.metamask = new _metamask.default();
-    this.metamask.setAccountChangeCb(function () {
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CDApp).call(this));
+    _this.imageMgr = new _imageMgr.default();
+
+    var images = _this.getDownloadImageList();
+
+    _this.imageMgr.setDrawingList(images);
+
+    _this.eventMgr = new _eventMgr.default();
+    _this.controller = new _drawingController.default();
+    _this.metamask = new _metamask.default();
+
+    _this.metamask.setAccountChangeCb(function () {
       _utils.default.notice('Account change, reload page!', function () {
         window.location.reload();
       });
     });
-    this.crytoDoor = new _crytoDoor.default();
-    this.mmCheck = null;
+
+    _this.crytoDoor = new _crytoDoor.default();
+    _this.mmCheck = null;
+    return _this;
   }
 
   _createClass(CDApp, [{
@@ -120304,30 +120362,127 @@ function () {
   }, {
     key: "run",
     value: function run() {
-      var _this = this;
+      var _this2 = this;
 
       this.imageMgr.loadImages().then(function () {
-        return _this.metamask.init();
+        return _this2.metamask.init();
       }).then(function (check) {
-        _this.mmCheck = check;
+        _this2.mmCheck = check;
       }).then(function () {
-        if (_this.mmCheck.pass()) {
-          _this.metamask.checkIfAccountChange();
+        if (_this2.mmCheck.pass()) {
+          _this2.metamask.checkIfAccountChange();
 
-          return _this.crytoDoor.init(_this.metamask.web3.currentProvider);
+          return _this2.crytoDoor.init(_this2.metamask.web3.currentProvider);
         }
       }).then(function () {
-        _this.eventMgr.dispatch(_macro.MacroEvent.Run);
+        _this2.eventMgr.dispatch(_macro.MacroEvent.Run);
       });
     }
   }]);
 
   return CDApp;
-}();
+}(_projApp.default);
 
 var _default = CDApp;
 exports.default = _default;
-},{"../lib/image-mgr":"../src/lib/image-mgr.js","../lib/event-mgr":"../src/lib/event-mgr.js","./macro":"../src/cryto-door/macro.js","./drawing/drawing-controller":"../src/cryto-door/drawing/drawing-controller.js","../common/metamask":"../src/common/metamask.js","./contract/cryto-door":"../src/cryto-door/contract/cryto-door.js","./utils":"../src/cryto-door/utils.js"}],"../src/config.js":[function(require,module,exports) {
+},{"../lib/image-mgr":"../src/lib/image-mgr.js","../lib/event-mgr":"../src/lib/event-mgr.js","./macro":"../src/cryto-door/macro.js","./drawing/drawing-controller":"../src/cryto-door/drawing/drawing-controller.js","../common/metamask":"../src/common/metamask.js","./contract/cryto-door":"../src/cryto-door/contract/cryto-door.js","./utils":"../src/cryto-door/utils.js","../common/proj-app":"../src/common/proj-app.js"}],"../src/cryto-box/cb-entry.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var CBEntry =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CBEntry, _React$Component);
+
+  function CBEntry(props) {
+    _classCallCheck(this, CBEntry);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(CBEntry).call(this, props));
+  }
+
+  _createClass(CBEntry, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "cb"
+      }, _react.default.createElement("p", null, "Cryto Box Entry"));
+    }
+  }]);
+
+  return CBEntry;
+}(_react.default.Component);
+
+var _default = CBEntry;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js"}],"../src/cryto-box/cb-app.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _projApp = _interopRequireDefault(require("../common/proj-app"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var CBApp =
+/*#__PURE__*/
+function (_ProjApp) {
+  _inherits(CBApp, _ProjApp);
+
+  function CBApp() {
+    _classCallCheck(this, CBApp);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(CBApp).call(this));
+  }
+
+  return CBApp;
+}(_projApp.default);
+
+var _default = CBApp;
+exports.default = _default;
+},{"../common/proj-app":"../src/common/proj-app.js"}],"../src/config.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -120338,6 +120493,10 @@ exports.default = void 0;
 var _cdEntry = _interopRequireDefault(require("./cryto-door/cd-entry"));
 
 var _cdApp = _interopRequireDefault(require("./cryto-door/cd-app"));
+
+var _cbEntry = _interopRequireDefault(require("./cryto-box/cb-entry"));
+
+var _cbApp = _interopRequireDefault(require("./cryto-box/cb-app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -120350,6 +120509,13 @@ var projects = [{
   img: '/images/proj-cryto-door.png'
 }, {
   id: 2,
+  name: 'Cryto Box',
+  target: 'box',
+  comp: _cbEntry.default,
+  app: _cbApp.default,
+  img: '/images/proj-cryto-box.png'
+}, {
+  id: 3,
   name: '?',
   target: null,
   comp: null,
@@ -120360,7 +120526,7 @@ var _default = {
   projects: projects
 };
 exports.default = _default;
-},{"./cryto-door/cd-entry":"../src/cryto-door/cd-entry.js","./cryto-door/cd-app":"../src/cryto-door/cd-app.js"}],"../../node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
+},{"./cryto-door/cd-entry":"../src/cryto-door/cd-entry.js","./cryto-door/cd-app":"../src/cryto-door/cd-app.js","./cryto-box/cb-entry":"../src/cryto-box/cb-entry.js","./cryto-box/cb-app":"../src/cryto-box/cb-app.js"}],"../../node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => "%".concat(x.charCodeAt(0).toString(16).toUpperCase()));
@@ -120673,7 +120839,7 @@ function (_React$Component2) {
         className: "gallary-item",
         onClick: this.onClick.bind(this)
       }, this.props.cfg.img ? _react.default.createElement("img", {
-        src: "/images/proj-cryto-door.png"
+        src: this.props.cfg.img
       }) : _react.default.createElement("h2", null, this.props.cfg.name));
     }
   }, {
@@ -120941,7 +121107,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51412" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49673" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
