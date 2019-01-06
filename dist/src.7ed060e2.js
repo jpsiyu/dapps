@@ -24527,7 +24527,7 @@ function (_React$Component) {
 
 var _default = OwnerOther;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","../utils":"../src/cryto-door/utils.js","../timer":"../src/cryto-door/timer.js"}],"../src/cryto-door/mm-guide.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../utils":"../src/cryto-door/utils.js","../timer":"../src/cryto-door/timer.js"}],"../src/common/mm-guide.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24695,7 +24695,7 @@ var _ownerNone = _interopRequireDefault(require("./owner/owner-none"));
 
 var _ownerOther = _interopRequireDefault(require("./owner/owner-other"));
 
-var _mmGuide = _interopRequireDefault(require("./mm-guide"));
+var _mmGuide = _interopRequireDefault(require("../common/mm-guide"));
 
 var _macro = require("./macro");
 
@@ -24863,7 +24863,7 @@ function (_React$Component) {
 
 var _default = Interaction;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js","./owner/owner-me":"../src/cryto-door/owner/owner-me.js","./owner/owner-none":"../src/cryto-door/owner/owner-none.js","./owner/owner-other":"../src/cryto-door/owner/owner-other.js","./mm-guide":"../src/cryto-door/mm-guide.js","./macro":"../src/cryto-door/macro.js","./notice":"../src/cryto-door/notice.js","./utils":"../src/cryto-door/utils.js"}],"../src/cryto-door/drawing-container.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./owner/owner-me":"../src/cryto-door/owner/owner-me.js","./owner/owner-none":"../src/cryto-door/owner/owner-none.js","./owner/owner-other":"../src/cryto-door/owner/owner-other.js","../common/mm-guide":"../src/common/mm-guide.js","./macro":"../src/cryto-door/macro.js","./notice":"../src/cryto-door/notice.js","./utils":"../src/cryto-door/utils.js"}],"../src/cryto-door/drawing-container.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -120473,7 +120473,18 @@ function (_React$Component) {
 
 var _default = CBBoxStatus;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js"}],"../src/cryto-box/cb-box-cont.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../src/cryto-box/macro.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MacroEvent = void 0;
+var MacroEvent = {
+  Run: 'Run'
+};
+exports.MacroEvent = MacroEvent;
+},{}],"../src/cryto-box/cb-box-cont.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -120482,6 +120493,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _mmGuide = _interopRequireDefault(require("../common/mm-guide"));
+
+var _macro = require("./macro");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -120509,14 +120524,36 @@ function (_React$Component) {
   _inherits(CBBoxCont, _React$Component);
 
   function CBBoxCont(props) {
+    var _this;
+
     _classCallCheck(this, CBBoxCont);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CBBoxCont).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CBBoxCont).call(this, props));
+    _this.state = {
+      active: false
+    };
+    return _this;
   }
 
   _createClass(CBBoxCont, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      projApp.eventMgr.subscribe(_macro.MacroEvent.Run, this, this.receRun.bind(this));
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      projApp.eventMgr.unsubscribe(_macro.MacroEvent.Run, this);
+    }
+  }, {
     key: "render",
     value: function render() {
+      if (!this.state.active) return null;
+      if (projApp.mmCheck.pass()) return this.renderCont();else return _react.default.createElement(_mmGuide.default, null);
+    }
+  }, {
+    key: "renderCont",
+    value: function renderCont() {
       return _react.default.createElement("div", {
         className: "cb-box-cont"
       }, _react.default.createElement("div", {
@@ -120542,6 +120579,13 @@ function (_React$Component) {
       }
 
       return l;
+    }
+  }, {
+    key: "receRun",
+    value: function receRun() {
+      this.setState({
+        active: true
+      });
     }
   }]);
 
@@ -120583,7 +120627,7 @@ function (_React$Component2) {
 
 var _default = CBBoxCont;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js"}],"../src/cryto-box/cb-entry.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../common/mm-guide":"../src/common/mm-guide.js","./macro":"../src/cryto-box/macro.js"}],"../src/cryto-box/cb-entry.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -120656,11 +120700,21 @@ exports.default = void 0;
 
 var _projApp = _interopRequireDefault(require("../common/proj-app"));
 
+var _metamask = _interopRequireDefault(require("../common/metamask"));
+
+var _eventMgr = _interopRequireDefault(require("../lib/event-mgr"));
+
+var _macro = require("./macro");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
@@ -120678,17 +120732,40 @@ function (_ProjApp) {
   _inherits(CBApp, _ProjApp);
 
   function CBApp() {
+    var _this;
+
     _classCallCheck(this, CBApp);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CBApp).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CBApp).call(this));
+    _this.metamask = new _metamask.default();
+    _this.eventMgr = new _eventMgr.default();
+    _this.mmCheck = null;
+    return _this;
   }
+
+  _createClass(CBApp, [{
+    key: "run",
+    value: function run() {
+      var _this2 = this;
+
+      this.metamask.init().then(function (check) {
+        _this2.mmCheck = check;
+      }).then(function () {
+        if (_this2.mmCheck.pass()) {
+          _this2.metamask.checkIfAccountChange();
+        }
+      }).then(function () {
+        _this2.eventMgr.dispatch(_macro.MacroEvent.Run);
+      });
+    }
+  }]);
 
   return CBApp;
 }(_projApp.default);
 
 var _default = CBApp;
 exports.default = _default;
-},{"../common/proj-app":"../src/common/proj-app.js"}],"../src/config.js":[function(require,module,exports) {
+},{"../common/proj-app":"../src/common/proj-app.js","../common/metamask":"../src/common/metamask.js","../lib/event-mgr":"../src/lib/event-mgr.js","./macro":"../src/cryto-box/macro.js"}],"../src/config.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -121313,7 +121390,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49249" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64618" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

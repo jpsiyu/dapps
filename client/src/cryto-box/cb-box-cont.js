@@ -1,11 +1,32 @@
 import React from 'react'
+import MMGuide from '../common/mm-guide'
+import { MacroEvent } from './macro'
 
 class CBBoxCont extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            active: false
+        }
+    }
+
+    componentDidMount() {
+        projApp.eventMgr.subscribe(MacroEvent.Run, this, this.receRun.bind(this))
+    }
+
+    componentWillUnmount() {
+        projApp.eventMgr.unsubscribe(MacroEvent.Run, this)
     }
 
     render() {
+        if (!this.state.active) return null
+        if (projApp.mmCheck.pass())
+            return this.renderCont()
+        else
+            return <MMGuide />
+    }
+
+    renderCont() {
         return <div className='cb-box-cont'>
             <div className='title'>
                 <h2>Your Goods</h2>
@@ -26,6 +47,10 @@ class CBBoxCont extends React.Component {
             l.push(<GoodsItem goodsInfo={goodsInfo} key={i} />)
         }
         return l
+    }
+
+    receRun() {
+        this.setState({ active: true })
     }
 
 }

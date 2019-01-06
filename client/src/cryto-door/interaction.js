@@ -2,7 +2,7 @@ import React from 'react'
 import OwnerMe from './owner/owner-me'
 import OwnerNone from './owner/owner-none'
 import OwnerOther from './owner/owner-other'
-import MMGuide from './mm-guide'
+import MMGuide from '../common/mm-guide'
 import { MacroEvent } from './macro'
 import Notice from './notice'
 import Utils from './utils';

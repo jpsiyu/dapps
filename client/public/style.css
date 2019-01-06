@@ -3,6 +3,7 @@
 @import './css/navigator.css';
 @import './css/cryto-door/cryto-door.css';
 @import './css/cryto-box/cryto-box.css';
+@import './css/mm-guide.css';
 
 *{
     padding: 0;
