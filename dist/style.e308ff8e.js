@@ -226,12 +226,27 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./drawing-container.css":"css/cryto-door/drawing-container.css","./interaction.css":"css/cryto-door/interaction.css","./owner-me.css":"css/cryto-door/owner-me.css","./owner-none.css":"css/cryto-door/owner-none.css","./owner-other.css":"css/cryto-door/owner-other.css","./mm-guide.css":"css/cryto-door/mm-guide.css","./notice.css":"css/cryto-door/notice.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"style.css":[function(require,module,exports) {
+},{"./drawing-container.css":"css/cryto-door/drawing-container.css","./interaction.css":"css/cryto-door/interaction.css","./owner-me.css":"css/cryto-door/owner-me.css","./owner-none.css":"css/cryto-door/owner-none.css","./owner-other.css":"css/cryto-door/owner-other.css","./mm-guide.css":"css/cryto-door/mm-guide.css","./notice.css":"css/cryto-door/notice.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/cryto-box/cb-box-status.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./css/entry.css":"css/entry.css","./css/gallary.css":"css/gallary.css","./css/navigator.css":"css/navigator.css","./css/cryto-door/cryto-door.css":"css/cryto-door/cryto-door.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/cryto-box/cb-box-cont.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/cryto-box/cryto-box.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./cb-box-status.css":"css/cryto-box/cb-box-status.css","./cb-box-cont.css":"css/cryto-box/cb-box-cont.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"style.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./css/entry.css":"css/entry.css","./css/gallary.css":"css/gallary.css","./css/navigator.css":"css/navigator.css","./css/cryto-door/cryto-door.css":"css/cryto-door/cryto-door.css","./css/cryto-box/cryto-box.css":"css/cryto-box/cryto-box.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -258,7 +273,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49673" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49249" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

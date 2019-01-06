@@ -1,0 +1,15 @@
+@import './cb-box-status.css';
+@import './cb-box-cont.css';
+
+.cb-entry{
+    display: flex;
+}
+
+.cb-entry .left{
+    flex: 1;
+    border-right: 1px gray solid;
+}
+
+.cb-entry .right{
+    flex: 1;
+}

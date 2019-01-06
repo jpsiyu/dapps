@@ -2,6 +2,7 @@
 @import './css/gallary.css';
 @import './css/navigator.css';
 @import './css/cryto-door/cryto-door.css';
+@import './css/cryto-box/cryto-box.css';
 
 *{
     padding: 0;

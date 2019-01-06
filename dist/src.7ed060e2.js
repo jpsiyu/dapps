@@ -120107,12 +120107,12 @@ module.exports = {
     "999": {
       "events": {},
       "links": {},
-      "address": "0x3538275bbd81239069a285ea4c7d2537e179c47f",
+      "address": "0x4c2d21ebc9975c14143f4accc5672323ea223f35",
       "transactionHash": "0x796c513b2f8d5462975122a202421b0a10c94ab5b242fdbf65bd9668e8cdec59"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-05T02:57:45.515Z"
+  "updatedAt": "2019-01-06T04:21:26.476Z"
 };
 },{}],"../src/cryto-door/contract/cryto-door.js":[function(require,module,exports) {
 "use strict";
@@ -120385,7 +120385,7 @@ function (_ProjApp) {
 
 var _default = CDApp;
 exports.default = _default;
-},{"../lib/image-mgr":"../src/lib/image-mgr.js","../lib/event-mgr":"../src/lib/event-mgr.js","./macro":"../src/cryto-door/macro.js","./drawing/drawing-controller":"../src/cryto-door/drawing/drawing-controller.js","../common/metamask":"../src/common/metamask.js","./contract/cryto-door":"../src/cryto-door/contract/cryto-door.js","./utils":"../src/cryto-door/utils.js","../common/proj-app":"../src/common/proj-app.js"}],"../src/cryto-box/cb-entry.js":[function(require,module,exports) {
+},{"../lib/image-mgr":"../src/lib/image-mgr.js","../lib/event-mgr":"../src/lib/event-mgr.js","./macro":"../src/cryto-door/macro.js","./drawing/drawing-controller":"../src/cryto-door/drawing/drawing-controller.js","../common/metamask":"../src/common/metamask.js","./contract/cryto-door":"../src/cryto-door/contract/cryto-door.js","./utils":"../src/cryto-door/utils.js","../common/proj-app":"../src/common/proj-app.js"}],"../src/cryto-box/cb-box-status.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -120394,6 +120394,208 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var CBBoxStatus =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CBBoxStatus, _React$Component);
+
+  function CBBoxStatus(props) {
+    _classCallCheck(this, CBBoxStatus);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(CBBoxStatus).call(this, props));
+  }
+
+  _createClass(CBBoxStatus, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "cb-box-ui"
+      }, _react.default.createElement("div", {
+        className: "title"
+      }, _react.default.createElement("h2", null, "Box Status")), _react.default.createElement("div", {
+        className: "boxes"
+      }, this.renderBoxes()));
+    }
+  }, {
+    key: "renderBoxes",
+    value: function renderBoxes() {
+      var boxList = [];
+
+      for (var i = 0; i < 9; i++) {
+        var info = {
+          id: i,
+          lock: Math.random() > 0.5
+        };
+        boxList.push(this.renderBox(info));
+      }
+
+      return boxList;
+    }
+  }, {
+    key: "renderBox",
+    value: function renderBox(info) {
+      return _react.default.createElement("div", {
+        className: "box",
+        key: info.id
+      }, _react.default.createElement("div", {
+        className: "label"
+      }, _react.default.createElement("p", null, info.id)), _react.default.createElement("div", {
+        className: "status"
+      }, info.lock ? _react.default.createElement("img", {
+        src: "/images/cryto-box/lock.png"
+      }) : null));
+    }
+  }]);
+
+  return CBBoxStatus;
+}(_react.default.Component);
+
+var _default = CBBoxStatus;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js"}],"../src/cryto-box/cb-box-cont.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var CBBoxCont =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CBBoxCont, _React$Component);
+
+  function CBBoxCont(props) {
+    _classCallCheck(this, CBBoxCont);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(CBBoxCont).call(this, props));
+  }
+
+  _createClass(CBBoxCont, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "cb-box-cont"
+      }, _react.default.createElement("div", {
+        className: "title"
+      }, _react.default.createElement("h2", null, "Your Goods")), _react.default.createElement("div", {
+        className: "goods-list"
+      }, this.renderGoodsList()));
+    }
+  }, {
+    key: "renderGoodsList",
+    value: function renderGoodsList() {
+      var l = [];
+
+      for (var i = 0; i < 4; i++) {
+        var goodsInfo = {
+          id: i,
+          desc: 'goods hahahaah'
+        };
+        l.push(_react.default.createElement(GoodsItem, {
+          goodsInfo: goodsInfo,
+          key: i
+        }));
+      }
+
+      return l;
+    }
+  }]);
+
+  return CBBoxCont;
+}(_react.default.Component);
+
+var GoodsItem =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(GoodsItem, _React$Component2);
+
+  function GoodsItem(props) {
+    _classCallCheck(this, GoodsItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(GoodsItem).call(this, props));
+  }
+
+  _createClass(GoodsItem, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "goods"
+      }, _react.default.createElement("div", {
+        className: "part-a"
+      }, _react.default.createElement("p", null, this.props.goodsInfo.id)), _react.default.createElement("div", {
+        className: "part-b"
+      }, _react.default.createElement("p", null, this.props.goodsInfo.desc)), _react.default.createElement("div", {
+        className: "part-c"
+      }, _react.default.createElement("button", {
+        className: "btn-take btn"
+      }, "Take Out"), _react.default.createElement("button", {
+        className: "btn-assign btn"
+      }, "Assign")));
+    }
+  }]);
+
+  return GoodsItem;
+}(_react.default.Component);
+
+var _default = CBBoxCont;
+exports.default = _default;
+},{"react":"../../node_modules/react/index.js"}],"../src/cryto-box/cb-entry.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _cbBoxStatus = _interopRequireDefault(require("./cb-box-status"));
+
+var _cbBoxCont = _interopRequireDefault(require("./cb-box-cont"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -120430,8 +120632,12 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
-        className: "cb"
-      }, _react.default.createElement("p", null, "Cryto Box Entry"));
+        className: "cb-entry"
+      }, _react.default.createElement("div", {
+        className: "left"
+      }, _react.default.createElement(_cbBoxCont.default, null)), _react.default.createElement("div", {
+        className: "right"
+      }, _react.default.createElement(_cbBoxStatus.default, null)));
     }
   }]);
 
@@ -120440,7 +120646,7 @@ function (_React$Component) {
 
 var _default = CBEntry;
 exports.default = _default;
-},{"react":"../../node_modules/react/index.js"}],"../src/cryto-box/cb-app.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./cb-box-status":"../src/cryto-box/cb-box-status.js","./cb-box-cont":"../src/cryto-box/cb-box-cont.js"}],"../src/cryto-box/cb-app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -121107,7 +121313,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49673" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49249" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

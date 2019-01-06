@@ -1,0 +1,44 @@
+.cb-box-ui{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: gray;
+}
+
+.cb-box-ui .title{
+    width: 420px;
+    border-bottom: 1px gray solid;
+    display: flex;
+    justify-content: center;
+}
+
+.cb-box-ui .boxes{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 400px;
+}
+
+
+.cb-box-ui .boxes .box{
+    position: relative;
+    border: 1px gray solid;
+    width: 120px;
+    height: 120px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cb-box-ui .boxes .box .label{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 3px;
+}
+
+.cb-box-ui .boxes .box img{
+    width: 50px;
+    height: 50px;
+}

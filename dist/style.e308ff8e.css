@@ -367,7 +367,121 @@
     box-shadow: 3px -3px rgba(0, 0, 0, 0.2);
 }
 
-*{
+.cb-box-ui{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: gray;
+}
+
+.cb-box-ui .title{
+    width: 420px;
+    border-bottom: 1px gray solid;
+    display: flex;
+    justify-content: center;
+}
+
+.cb-box-ui .boxes{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 400px;
+}
+
+
+.cb-box-ui .boxes .box{
+    position: relative;
+    border: 1px gray solid;
+    width: 120px;
+    height: 120px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cb-box-ui .boxes .box .label{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 3px;
+}
+
+.cb-box-ui .boxes .box img{
+    width: 50px;
+    height: 50px;
+}.cb-box-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: gray;
+}
+
+.cb-box-cont .title{
+    border-bottom: 1px gray solid;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.cb-box-cont .goods-list{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.cb-box-cont .goods{
+    display: flex;
+    align-items: center;
+    color: black;
+    background-color: rgba(200, 200, 200, 0.5);
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+}
+
+.cb-box-cont .part-a{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.cb-box-cont .part-b{
+    flex: 3;
+    overflow: scroll;
+}
+
+.cb-box-cont .part-c{
+    flex: 1.5;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cb-box-cont .btn-take{
+    width: 70px;
+    height: 30px;
+    background-color: blue;
+    color: white;
+}
+
+.cb-box-cont .btn-assign{
+    width: 70px;
+    height: 30px;
+    background-color: seagreen;
+    color: white;
+}.cb-entry{
+    display: flex;
+}
+
+.cb-entry .left{
+    flex: 1;
+    border-right: 1px gray solid;
+}
+
+.cb-entry .right{
+    flex: 1;
+}*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
