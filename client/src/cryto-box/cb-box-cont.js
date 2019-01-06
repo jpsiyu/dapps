@@ -30,6 +30,9 @@ class CBBoxCont extends React.Component {
         return <div className='cb-box-cont'>
             <div className='title'>
                 <h2>Your Goods</h2>
+                <div className='add'>
+                    <button className='btn btn-add' onClick={this.onAddClick.bind(this)}>+</button>
+                </div>
             </div>
             <div className='goods-list'>
                 {this.renderGoodsList()}
@@ -39,10 +42,12 @@ class CBBoxCont extends React.Component {
 
     renderGoodsList() {
         const l = []
-        for (let i = 0; i < 4; i++) {
+        const gl = projApp.crytoBox.myGoods
+        for (let i = 0; i < gl.length; i++) {
+            const g = gl[i]
             const goodsInfo = {
-                id: i,
-                desc: 'goods hahahaah',
+                id: g.id,
+                desc: g.desc,
             }
             l.push(<GoodsItem goodsInfo={goodsInfo} key={i} />)
         }
@@ -51,6 +56,13 @@ class CBBoxCont extends React.Component {
 
     receRun() {
         this.setState({ active: true })
+    }
+
+    onAddClick() {
+        projApp.crytoBox.addGoods('hahaha')
+            .then(res => {
+                console.log(res)
+            })
     }
 
 }
@@ -69,10 +81,17 @@ class GoodsItem extends React.Component {
                 <p>{this.props.goodsInfo.desc}</p>
             </div>
             <div className='part-c'>
-                <button className='btn-take btn'>Take Out</button>
+                <button className='btn-take btn' onClick={this.onTakeOutClick.bind(this)}>Take Out</button>
                 <button className='btn-assign btn'>Assign</button>
             </div>
         </div>
+    }
+
+    onTakeOutClick() {
+        projApp.crytoBox.takeOut(this.props.goodsInfo.id)
+            .then(res => {
+                console.log(res)
+            })
     }
 }
 

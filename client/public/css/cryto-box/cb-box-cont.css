@@ -6,10 +6,28 @@
 }
 
 .cb-box-cont .title{
+    position: relative;
     border-bottom: 1px gray solid;
     width: 90%;
     display: flex;
     justify-content: center;
+}
+
+.cb-box-cont .add{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cb-box-cont .btn-add{
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px gray solid;
+    border-radius: 50%;
 }
 
 .cb-box-cont .goods-list{

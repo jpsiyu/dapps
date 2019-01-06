@@ -1,6 +1,7 @@
 import ProjApp from '../common/proj-app'
 import MetaMask from '../common/metamask'
 import EventMgr from '../lib/event-mgr'
+import CrytoBox from './cryto-box'
 import { MacroEvent } from './macro'
 
 class CBApp extends ProjApp {
@@ -8,6 +9,7 @@ class CBApp extends ProjApp {
         super()
         this.metamask = new MetaMask()
         this.eventMgr = new EventMgr()
+        this.crytoBox = new CrytoBox()
         this.mmCheck = null
     }
 
@@ -19,6 +21,7 @@ class CBApp extends ProjApp {
             .then(() => {
                 if (this.mmCheck.pass()) {
                     this.metamask.checkIfAccountChange()
+                    return this.crytoBox.init(this.metamask.web3.currentProvider)
                 }
             })
             .then(() => {
