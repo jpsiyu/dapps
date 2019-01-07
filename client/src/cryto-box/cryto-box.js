@@ -79,6 +79,14 @@ class CrytoBox {
     getBoxStatus(id) {
         return this.boxStatus[id]
     }
+
+    isFull() {
+        let full = true
+        this.boxStatus.forEach(s => {
+            if (!s) full = false
+        })
+        return full
+    }
 }
 
 export default CrytoBox

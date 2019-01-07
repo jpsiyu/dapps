@@ -490,6 +490,13 @@
     position: relative;
 }
 
+.cb-pop-add .full{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cb-pop-add .btn-cancle{
     position: absolute;
     top: 0;

@@ -12,12 +12,16 @@ class CBPopAdd extends React.Component {
     }
 
     render() {
+        if (projApp.crytoBox.isFull())
+            return this.renderFull()
+        else
+            return this.renderAdd()
+    }
+
+    renderAdd() {
         return <div className='cb-pop-add'>
             <div className='content'>
-                <div className='title'>
-                    <h2>Add Goods</h2>
-                    <button className='btn btn-cancle' onClick={this.onCancelClick.bind(this)}>X</button>
-                </div>
+                {this.renderTitle()}
                 <div className='detail'>
                     <p>Give it a name:</p>
                     <input ref={this.inputRef} onChange={this.onAddChange.bind(this)} />
@@ -29,6 +33,24 @@ class CBPopAdd extends React.Component {
                     <button className='btn btn-add' onClick={this.onAddClick.bind(this)}>Sure</button>
                 </div>
             </div>
+        </div>
+    }
+
+    renderFull() {
+        return <div className='cb-pop-add'>
+            <div className='content'>
+                {this.renderTitle()}
+                <div className='full'>
+                    <p>Cannot add more, the storate box is full!</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    renderTitle() {
+        return <div className='title'>
+            <h2>Add Goods</h2>
+            <button className='btn btn-cancle' onClick={this.onCancelClick.bind(this)}>X</button>
         </div>
     }
 

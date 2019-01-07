@@ -64,7 +64,10 @@ contract CrytoBox {
 
     function takeOut(uint8 id) public {
         require(validId(id), "Not valid id");
-        boxRecord[id].used = 0;
+        Goods storage g = boxRecord[id];
+        require(g.used == 1, "It's empty");
+        require(g.owner == msg.sender, "You are not owner");
+        g.used = 0;
         currentNum--;
     }
 }
