@@ -47,9 +47,21 @@ class CBPopAdd extends React.Component {
         if (!value) {
             this.setState({ errorMsg: 'Name can not be empty!' })
         } else {
+            projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, true)
             projApp.crytoBox.addGoods(value)
                 .then(res => {
                     console.log(res)
+                })
+                .then(() => {
+                    return projApp.crytoBox.reload()
+                })
+                .then(() => {
+                    projApp.eventMgr.dispatch(MacroEvent.PopUpAdd, false)
+                    projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
+                })
+                .catch(error => {
+                    console.log(error)
+                    projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
                 })
         }
     }

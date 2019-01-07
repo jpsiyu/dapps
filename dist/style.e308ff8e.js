@@ -236,12 +236,17 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/cryto-box/cb-pop-loading.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/cryto-box/cryto-box.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./cb-box-status.css":"css/cryto-box/cb-box-status.css","./cb-box-cont.css":"css/cryto-box/cb-box-cont.css","./cb-pop-add.css":"css/cryto-box/cb-pop-add.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
+},{"./cb-box-status.css":"css/cryto-box/cb-box-status.css","./cb-box-cont.css":"css/cryto-box/cb-box-cont.css","./cb-pop-add.css":"css/cryto-box/cb-pop-add.css","./cb-pop-loading.css":"css/cryto-box/cb-pop-loading.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);

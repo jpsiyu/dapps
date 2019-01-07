@@ -483,7 +483,7 @@
 
 .cb-pop-add .title{
     flex: 1;
-    border-bottom: 1px gray solid;
+    border-bottom: 1px gray dashed;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -496,10 +496,10 @@
     right: 0;
     border: 1px gray solid;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 18px;
     color: gray;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: 5px;
 }
 
@@ -542,6 +542,16 @@
     width: 120px;
     height: 40px;
     font-size: 22px;
+}.cb-pop-loading{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }.cb-entry{
     display: flex;
 }

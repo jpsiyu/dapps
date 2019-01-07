@@ -12,10 +12,12 @@ class CBBoxCont extends React.Component {
 
     componentDidMount() {
         projApp.eventMgr.subscribe(MacroEvent.Run, this, this.receRun.bind(this))
+        projApp.eventMgr.subscribe(MacroEvent.ContractReload, this, () => this.forceUpdate())
     }
 
     componentWillUnmount() {
         projApp.eventMgr.unsubscribe(MacroEvent.Run, this)
+        projApp.eventMgr.unsubscribe(MacroEvent.ContractReload, this)
     }
 
     render() {
@@ -85,9 +87,20 @@ class GoodsItem extends React.Component {
     }
 
     onTakeOutClick() {
+        projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, true)
         projApp.crytoBox.takeOut(this.props.goodsInfo.id)
             .then(res => {
                 console.log(res)
+            })
+            .then(() => {
+                return projApp.crytoBox.reload()
+            })
+            .then(() => {
+                projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
+            })
+            .catch(err => {
+                console.log(err)
+                projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
             })
     }
 }

@@ -1,6 +1,7 @@
 @import './cb-box-status.css';
 @import './cb-box-cont.css';
 @import './cb-pop-add.css';
+@import './cb-pop-loading.css';
 
 .cb-entry{
     display: flex;
