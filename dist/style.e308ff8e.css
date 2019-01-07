@@ -32,7 +32,7 @@
     height: 50px;
     display: flex;
     border-bottom: 3px gray solid;
-    margin: 30px 0;
+    margin-top: 30px;
     color: gray;
     font-weight: bold;
 }
@@ -385,6 +385,7 @@
     flex-direction: column;
     align-items: center;
     color: gray;
+    position: relative;
 }
 
 .cb-box-cont .title{
@@ -405,7 +406,8 @@
 }
 
 .cb-box-cont .btn-add{
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: bold;
     width: 30px;
     height: 30px;
     border: 1px gray solid;
@@ -458,6 +460,88 @@
     height: 30px;
     background-color: seagreen;
     color: white;
+}.cb-pop-add{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+
+.cb-pop-add .content{
+    background-color: white;
+    width: 80%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cb-pop-add .title{
+    flex: 1;
+    border-bottom: 1px gray solid;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.cb-pop-add .btn-cancle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px gray solid;
+    border-radius: 50%;
+    font-size: 20px;
+    color: gray;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.cb-pop-add .detail{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cb-pop-add .error{
+    position: absolute;
+    bottom: 30%;
+    color: red;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    word-break: break-all;
+    width: 60%;
+}
+
+.cb-pop-add .detail input{
+    outline: none;
+    border: none;
+    border-bottom: 1px gray solid;
+    margin: 0 10px;
+    width: 250px;
+}
+
+.cb-pop-add .ok{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.cb-pop-add .btn-add{
+    background-color: blueviolet;
+    color: white;
+    width: 120px;
+    height: 40px;
+    font-size: 22px;
 }.cb-entry{
     display: flex;
 }
@@ -465,9 +549,12 @@
 .cb-entry .left{
     flex: 1;
     border-right: 1px gray solid;
+    padding-top: 50px;
+    position: relative;
 }
 
 .cb-entry .right{
+    padding-top: 50px;
     flex: 1;
 }.mm-guide{
     width: 100%;

@@ -231,12 +231,17 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/cryto-box/cb-pop-add.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/cryto-box/cryto-box.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./cb-box-status.css":"css/cryto-box/cb-box-status.css","./cb-box-cont.css":"css/cryto-box/cb-box-cont.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
+},{"./cb-box-status.css":"css/cryto-box/cb-box-status.css","./cb-box-cont.css":"css/cryto-box/cb-box-cont.css","./cb-pop-add.css":"css/cryto-box/cb-pop-add.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -273,7 +278,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64618" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53204" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -1,5 +1,6 @@
 @import './cb-box-status.css';
 @import './cb-box-cont.css';
+@import './cb-pop-add.css';
 
 .cb-entry{
     display: flex;
@@ -8,8 +9,11 @@
 .cb-entry .left{
     flex: 1;
     border-right: 1px gray solid;
+    padding-top: 50px;
+    position: relative;
 }
 
 .cb-entry .right{
+    padding-top: 50px;
     flex: 1;
 }

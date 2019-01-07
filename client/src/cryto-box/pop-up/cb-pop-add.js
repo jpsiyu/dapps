@@ -1,0 +1,62 @@
+import React from 'react'
+import { MacroEvent } from '../cb-macro'
+
+class CBPopAdd extends React.Component {
+    constructor(props) {
+        super(props)
+        this.inputRef = React.createRef()
+        this.state = {
+            errorMsg: ''
+        }
+        this.oldValue = ''
+    }
+
+    render() {
+        return <div className='cb-pop-add'>
+            <div className='content'>
+                <div className='title'>
+                    <h2>Add Goods</h2>
+                    <button className='btn btn-cancle' onClick={this.onCancelClick.bind(this)}>X</button>
+                </div>
+                <div className='detail'>
+                    <p>Give it a name:</p>
+                    <input ref={this.inputRef} onChange={this.onAddChange.bind(this)} />
+                    <div className='error'>
+                        <p>{this.state.errorMsg}</p>
+                    </div>
+                </div>
+                <div className='ok'>
+                    <button className='btn btn-add' onClick={this.onAddClick.bind(this)}>Sure</button>
+                </div>
+            </div>
+        </div>
+    }
+
+    onAddChange() {
+        this.setState({ errorMsg: '' })
+
+        const value = this.inputRef.current.value
+        if (value.length > 20)
+            this.inputRef.current.value = this.oldValue
+        else
+            this.oldValue = value
+    }
+
+    onAddClick() {
+        const value = this.inputRef.current.value
+        if (!value) {
+            this.setState({ errorMsg: 'Name can not be empty!' })
+        } else {
+            projApp.crytoBox.addGoods(value)
+                .then(res => {
+                    console.log(res)
+                })
+        }
+    }
+
+    onCancelClick() {
+        projApp.eventMgr.dispatch(MacroEvent.PopUpAdd, false)
+    }
+}
+
+export default CBPopAdd

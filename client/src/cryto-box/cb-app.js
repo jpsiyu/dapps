@@ -2,7 +2,7 @@ import ProjApp from '../common/proj-app'
 import MetaMask from '../common/metamask'
 import EventMgr from '../lib/event-mgr'
 import CrytoBox from './cryto-box'
-import { MacroEvent } from './macro'
+import { MacroEvent } from './cb-macro'
 
 class CBApp extends ProjApp {
     constructor() {

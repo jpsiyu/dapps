@@ -1,12 +1,15 @@
 import contract from 'truffle-contract'
 import CrytoBoxArtifact from '../../../truffle/build/contracts/CrytoBox.json'
+import { MacroEvent } from './cb-macro'
 
 class CrytoBox {
     constructor() {
         this.instance = null
         this.myGoods = null
+        this.boxStatus = []
     }
 
+    /* connect to blockchain */
     init(provider) {
         return new Promise((resolve, reject) => {
             const crytoBox = contract(CrytoBoxArtifact)
@@ -27,6 +30,15 @@ class CrytoBox {
             this.getMyGoods()
                 .then(res => {
                     this.myGoods = this.parseMyGoodsData(res)
+                })
+                .then(() => {
+                    return this.getStatus()
+                })
+                .then(s => {
+                    this.boxStatus = s
+                })
+                .then(() => {
+                    projApp.eventMgr.dispatch(MacroEvent.ContractReload)
                 })
                 .then(resolve)
         })
@@ -57,6 +69,15 @@ class CrytoBox {
 
     takeOut(id) {
         return this.instance.takeOut(id, { from: projApp.metamask.account })
+    }
+
+    getStatus() {
+        return this.instance.getStatus({ from: projApp.metamask.account })
+    }
+
+    /* utils */
+    getBoxStatus(id) {
+        return this.boxStatus[id]
     }
 }
 

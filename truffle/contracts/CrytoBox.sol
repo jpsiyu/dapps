@@ -30,6 +30,18 @@ contract CrytoBox {
         return (indexList, descList);
     }
 
+    function getStatus() public view returns(bool[] memory){
+        bool[] memory res = new bool[](boxNum);
+        for(uint8 i = 0; i < boxNum; i++){
+            Goods storage g = boxRecord[i];
+            if(g.used == 1)
+                res[i] = true;
+            else
+                res[i] = false;
+        }
+        return res;
+    }
+
     function isFull() public view returns(bool){
         return currentNum == boxNum;
     }
@@ -53,5 +65,6 @@ contract CrytoBox {
     function takeOut(uint8 id) public {
         require(validId(id), "Not valid id");
         boxRecord[id].used = 0;
+        currentNum--;
     }
 }

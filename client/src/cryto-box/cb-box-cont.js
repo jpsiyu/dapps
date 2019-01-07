@@ -1,12 +1,12 @@
 import React from 'react'
 import MMGuide from '../common/mm-guide'
-import { MacroEvent } from './macro'
+import { MacroEvent } from './cb-macro'
 
 class CBBoxCont extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            active: false
+            active: false,
         }
     }
 
@@ -59,10 +59,7 @@ class CBBoxCont extends React.Component {
     }
 
     onAddClick() {
-        projApp.crytoBox.addGoods('hahaha')
-            .then(res => {
-                console.log(res)
-            })
+        projApp.eventMgr.dispatch(MacroEvent.PopUpAdd, true)
     }
 
 }
