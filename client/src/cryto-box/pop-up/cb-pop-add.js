@@ -1,5 +1,6 @@
 import React from 'react'
-import { MacroEvent } from '../cb-macro'
+import { MacroEvent, MacroPopUp } from '../cb-macro'
+import CBUtils from '../cb-utils'
 
 class CBPopAdd extends React.Component {
     constructor(props) {
@@ -20,29 +21,25 @@ class CBPopAdd extends React.Component {
 
     renderAdd() {
         return <div className='cb-pop-add'>
-            <div className='content'>
-                {this.renderTitle()}
-                <div className='detail'>
-                    <p>Give it a name:</p>
-                    <input ref={this.inputRef} onChange={this.onAddChange.bind(this)} />
-                    <div className='error'>
-                        <p>{this.state.errorMsg}</p>
-                    </div>
+            {this.renderTitle()}
+            <div className='detail'>
+                <p>Give it a name:</p>
+                <input ref={this.inputRef} onChange={this.onAddChange.bind(this)} />
+                <div className='error'>
+                    <p>{this.state.errorMsg}</p>
                 </div>
-                <div className='ok'>
-                    <button className='btn btn-add' onClick={this.onAddClick.bind(this)}>Sure</button>
-                </div>
+            </div>
+            <div className='ok'>
+                <button className='btn btn-add' onClick={this.onAddClick.bind(this)}>Sure</button>
             </div>
         </div>
     }
 
     renderFull() {
         return <div className='cb-pop-add'>
-            <div className='content'>
-                {this.renderTitle()}
-                <div className='full'>
-                    <p>Cannot add more, the storate box is full!</p>
-                </div>
+            {this.renderTitle()}
+            <div className='full'>
+                <p>Cannot add more, the storate box is full!</p>
             </div>
         </div>
     }
@@ -69,7 +66,7 @@ class CBPopAdd extends React.Component {
         if (!value) {
             this.setState({ errorMsg: 'Name can not be empty!' })
         } else {
-            projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, true)
+            CBUtils.showPopUp(MacroPopUp.Loading)
             projApp.crytoBox.addGoods(value)
                 .then(res => {
                     console.log(res)
@@ -78,18 +75,18 @@ class CBPopAdd extends React.Component {
                     return projApp.crytoBox.reload()
                 })
                 .then(() => {
-                    projApp.eventMgr.dispatch(MacroEvent.PopUpAdd, false)
-                    projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
+                    CBUtils.hidePopUp(MacroPopUp.Add)
+                    CBUtils.hidePopUp(MacroPopUp.Loading)
                 })
                 .catch(error => {
                     console.log(error)
-                    projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
+                    CBUtils.hidePopUp(MacroPopUp.Loading)
                 })
         }
     }
 
     onCancelClick() {
-        projApp.eventMgr.dispatch(MacroEvent.PopUpAdd, false)
+        CBUtils.hidePopUp(MacroPopUp.Add)
     }
 }
 

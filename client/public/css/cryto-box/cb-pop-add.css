@@ -1,17 +1,4 @@
-.cb-pop-add{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-}
-
-.cb-pop-add .content{
+.cb-pop-add {
     background-color: white;
     width: 80%;
     height: 300px;

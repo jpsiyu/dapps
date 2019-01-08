@@ -1,6 +1,7 @@
 import React from 'react'
 import MMGuide from '../common/mm-guide'
-import { MacroEvent } from './cb-macro'
+import { MacroEvent, MacroPopUp } from './cb-macro'
+import CBUtils from './cb-utils'
 
 class CBBoxCont extends React.Component {
     constructor(props) {
@@ -61,7 +62,7 @@ class CBBoxCont extends React.Component {
     }
 
     onAddClick() {
-        projApp.eventMgr.dispatch(MacroEvent.PopUpAdd, true)
+        CBUtils.showPopUp(MacroPopUp.Add)
     }
 
 }
@@ -87,7 +88,7 @@ class GoodsItem extends React.Component {
     }
 
     onTakeOutClick() {
-        projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, true)
+        CBUtils.showPopUp(MacroPopUp.Loading)
         projApp.crytoBox.takeOut(this.props.goodsInfo.id)
             .then(res => {
                 console.log(res)
@@ -96,11 +97,11 @@ class GoodsItem extends React.Component {
                 return projApp.crytoBox.reload()
             })
             .then(() => {
-                projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
+                CBUtils.hidePopUp(MacroPopUp.Loading)
             })
             .catch(err => {
                 console.log(err)
-                projApp.eventMgr.dispatch(MacroEvent.PopUpLoading, false)
+                CBUtils.hidePopUp(MacroPopUp.Loading)
             })
     }
 }

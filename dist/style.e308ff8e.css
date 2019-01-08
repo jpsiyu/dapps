@@ -460,20 +460,7 @@
     height: 30px;
     background-color: seagreen;
     color: white;
-}.cb-pop-add{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-}
-
-.cb-pop-add .content{
+}.cb-pop-add {
     background-color: white;
     width: 80%;
     height: 300px;
@@ -550,12 +537,6 @@
     height: 40px;
     font-size: 22px;
 }.cb-pop-loading{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -573,7 +554,29 @@
 .cb-entry .right{
     padding-top: 50px;
     flex: 1;
-}.mm-guide{
+}
+
+.cb-pop-mgr{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+.cb-pop-mask{
+    pointer-events: all;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+.mm-guide{
     width: 100%;
     height: 100%;
     display: flex;
