@@ -540,6 +540,84 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}.cb-pop-assign{
+    width: 80%;
+    height: 300px;
+    background: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.cb-pop-assign .btn-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px gray solid;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: gray;
+    margin: 3px;
+}
+
+.cb-pop-assign .title{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-bottom: 1px gray dashed;
+}
+
+.cb-pop-assign .detail{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cb-pop-assign .item{
+    display: flex;
+    background-color: rgba(200, 200, 200, 0.5); 
+    width: 270px;
+    justify-content: space-between;
+    padding: 5px 20px;
+    color: black;
+}
+
+.cb-pop-assign .account{
+    display: flex;
+    padding: 10px 0;
+}
+
+.cb-pop-assign .account input{
+    border: none;
+    outline: none;
+    border-bottom: 1px gray solid;
+    margin: 0 5px;
+    width: 200px;
+}
+
+.cb-pop-assign .ok{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cb-pop-assign .btn-ok{
+    width: 100px;
+    height: 35px;
+    background-color: blueviolet;
+    color: white;
+    font-size: 20px;
+}
+
+.cb-pop-assign .error{
+    position: absolute;
+    margin: 20px 100px;
+    color: red;
 }.cb-entry{
     display: flex;
 }
@@ -575,6 +653,15 @@
     justify-content: center;
     align-items: center;
     color: gray;
+}
+
+
+.cb-entry .item-id{
+    border: 1px gray solid;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
 }
 .mm-guide{
     width: 100%;

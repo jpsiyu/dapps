@@ -54,12 +54,12 @@ class CBPopMgr extends React.Component {
 
     onRecePopUp(args) {
         if (args.show)
-            this.show(args.name)
+            this.show(args.name, args.viewData)
         else
             this.hide(args.name)
     }
 
-    show(pageName) {
+    show(pageName, viewData) {
         let cfg = null
         for (let i = 0; i < config.length; i++) {
             if (config[i].name == pageName) {
@@ -75,13 +75,13 @@ class CBPopMgr extends React.Component {
             case (MacroPopUpLayer.Normal):
                 this.setState({
                     normalCfg: cfg,
-                    normalCurrent: <Comp />,
+                    normalCurrent: <Comp viewData={viewData} />,
                 })
                 break
             case (MacroPopUpLayer.High):
                 this.setState({
                     highCfg: cfg,
-                    highCurrent: <Comp />,
+                    highCurrent: <Comp viewData={viewData} />,
                 })
         }
     }

@@ -70,4 +70,12 @@ contract CrytoBox {
         g.used = 0;
         currentNum--;
     }
+
+    function assign(uint8 id, address other) public{
+        require(validId(id), "Not valid id");
+        Goods storage g = boxRecord[id];
+        require(g.used == 1, "It's empty");
+        require(g.owner == msg.sender, "You are not owner");
+        g.owner = other;
+    }
 }

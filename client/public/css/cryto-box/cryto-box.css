@@ -2,6 +2,7 @@
 @import './cb-box-cont.css';
 @import './cb-pop-add.css';
 @import './cb-pop-loading.css';
+@import './cb-pop-assign.css';
 
 .cb-entry{
     display: flex;
@@ -38,4 +39,13 @@
     justify-content: center;
     align-items: center;
     color: gray;
+}
+
+
+.cb-entry .item-id{
+    border: 1px gray solid;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
 }

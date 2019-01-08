@@ -75,6 +75,10 @@ class CrytoBox {
         return this.instance.getStatus({ from: projApp.metamask.account })
     }
 
+    assign(id, account) {
+        return this.instance.assign(id, account, { from: projApp.metamask.account })
+    }
+
     /* utils */
     getBoxStatus(id) {
         return this.boxStatus[id]

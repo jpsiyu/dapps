@@ -75,14 +75,14 @@ class GoodsItem extends React.Component {
     render() {
         return <div className='goods'>
             <div className='part-a'>
-                <p>{this.props.goodsInfo.id}</p>
+                <p className='item-id'>{this.props.goodsInfo.id}</p>
             </div>
             <div className='part-b'>
                 <p>{this.props.goodsInfo.desc}</p>
             </div>
             <div className='part-c'>
                 <button className='btn-take btn' onClick={this.onTakeOutClick.bind(this)}>Take Out</button>
-                <button className='btn-assign btn'>Assign</button>
+                <button className='btn-assign btn' onClick={this.onAssignClick.bind(this)}>Assign</button>
             </div>
         </div>
     }
@@ -103,6 +103,10 @@ class GoodsItem extends React.Component {
                 console.log(err)
                 CBUtils.hidePopUp(MacroPopUp.Loading)
             })
+    }
+
+    onAssignClick() {
+        CBUtils.showPopUp(MacroPopUp.Assign, this.props.goodsInfo)
     }
 }
 
