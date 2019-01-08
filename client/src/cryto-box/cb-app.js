@@ -14,12 +14,16 @@ class CBApp extends ProjApp {
     }
 
     run() {
+
         this.metamask.init()
             .then(check => {
                 this.mmCheck = check
             })
             .then(() => {
                 if (this.mmCheck.pass()) {
+                    this.metamask.setAccountChangeCb(() => {
+                        window.location.reload()
+                    })
                     this.metamask.checkIfAccountChange()
                     return this.crytoBox.init(this.metamask.web3.currentProvider)
                 }
