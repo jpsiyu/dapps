@@ -9,15 +9,11 @@ module.exports = {
       host: "127.0.0.1", // Connect to geth on the specified
       port: 8545,
       network_id: 3,
-      gasPrice: 21000000000,
-      gas: 800391400000000,
     },
     rinkeby: {
       host: "127.0.0.1", // Connect to geth on the specified
       port: 8545,
       network_id: 4,
-      gasPrice: 21000000000,
-      gas: 8003914,
     }
   },
   compilers: {
