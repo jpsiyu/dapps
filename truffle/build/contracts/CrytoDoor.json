@@ -4649,10 +4649,10 @@
     "999": {
       "events": {},
       "links": {},
-      "address": "0xee39485b86e4aad3a86ba2cdcf188d58d37a95d2",
+      "address": "0x8b11076b19e7e177cdc9e9b08864f6e3d2a3c635",
       "transactionHash": "0x796c513b2f8d5462975122a202421b0a10c94ab5b242fdbf65bd9668e8cdec59"
     }
   },
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-08T03:53:21.853Z"
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-01-10T09:40:21.143Z"
 }

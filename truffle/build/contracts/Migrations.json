@@ -1378,10 +1378,10 @@
     "999": {
       "events": {},
       "links": {},
-      "address": "0x846532e3204e3fb2f983a6f385ed3d4a15d1806d",
+      "address": "0xcd5f5ac6e401af32aac2d254803ac97242339513",
       "transactionHash": "0xd86e70e61ce03f897199a8d1f5fe74910c3f42643ff449afd592dfe84acfc8e7"
     }
   },
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2019-01-08T06:48:19.516Z"
+  "schemaVersion": "2.0.2",
+  "updatedAt": "2019-01-10T09:40:21.435Z"
 }
