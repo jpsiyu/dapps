@@ -1,6 +1,7 @@
 import React from 'react'
-import { MacroEvent, MacroPopUp } from '../cb-macro'
+import { MacroPopUp } from '../cb-macro'
 import CBUtils from '../cb-utils'
+import Transaction from '../../common/transaction'
 
 class CBPopAdd extends React.Component {
     constructor(props) {
@@ -62,6 +63,7 @@ class CBPopAdd extends React.Component {
     }
 
     onAddClick() {
+        let tx 
         const value = this.inputRef.current.value
         if (!value) {
             this.setState({ errorMsg: 'Name can not be empty!' })
@@ -69,7 +71,11 @@ class CBPopAdd extends React.Component {
             CBUtils.showPopUp(MacroPopUp.Loading)
             projApp.crytoBox.addGoods(value)
                 .then(res => {
-                    console.log(res)
+                    tx = new Transaction(res, projApp.metamask.web3)
+                    console.log('receve tx meta')
+                })
+                .then(() => {
+                    return tx.waitTxAccept()
                 })
                 .then(() => {
                     return projApp.crytoBox.reload()

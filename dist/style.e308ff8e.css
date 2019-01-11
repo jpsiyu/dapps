@@ -540,6 +540,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cb-pop-loading img{
+    width: 100px;
+    height: 100px;
 }.cb-pop-assign{
     width: 80%;
     height: 300px;
@@ -648,7 +653,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;

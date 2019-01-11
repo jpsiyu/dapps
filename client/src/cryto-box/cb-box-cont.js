@@ -2,6 +2,7 @@ import React from 'react'
 import MMGuide from '../common/mm-guide'
 import { MacroEvent, MacroPopUp } from './cb-macro'
 import CBUtils from './cb-utils'
+import Transaction from '../common/transaction'
 
 class CBBoxCont extends React.Component {
     constructor(props) {
@@ -88,10 +89,15 @@ class GoodsItem extends React.Component {
     }
 
     onTakeOutClick() {
+        let tx
         CBUtils.showPopUp(MacroPopUp.Loading)
         projApp.crytoBox.takeOut(this.props.goodsInfo.id)
             .then(res => {
-                console.log(res)
+                tx = new Transaction(res, projApp.metamask.web3)
+                console.log('receve tx meta')
+            })
+            .then(() => {
+                return tx.waitTxAccept()
             })
             .then(() => {
                 return projApp.crytoBox.reload()

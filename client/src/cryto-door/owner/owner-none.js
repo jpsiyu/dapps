@@ -1,5 +1,6 @@
 import React from 'react'
 import Utils from '../utils';
+import Transaction from '../../common/transaction'
 
 const config = [
     { id: 1, title: 'Project A', time: 2, price: 0.1 },
@@ -63,10 +64,15 @@ class MarketItem extends React.Component {
     }
 
     purchase(min, price) {
+        let tx
         Utils.loading(true)
         projApp.crytoDoor.purchase(min, price)
             .then(res => {
-                console.log(res)
+                tx = new Transaction(res, projApp.metamask.web3)
+                console.log('receve tx meta')
+            })
+            .then(() => {
+                return tx.waitTxAccept()
             })
             .then(() => {
                 return projApp.crytoDoor.reload()

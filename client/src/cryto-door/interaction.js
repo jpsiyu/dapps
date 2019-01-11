@@ -25,7 +25,6 @@ class Interaction extends React.Component {
                 ? this.renderByState()
                 : <MMGuide />
             }
-            {this.renderTool()}
             {this.renderNotice()}
             {this.state.showLoading ? this.renderLoading() : null}
         </div>

@@ -1,14 +1,15 @@
 class Timer {
-    constructor(cbRun, cbFinish) {
+    constructor(cbRun, cbCheckFinish, cbFinished) {
         this.timer = null
         this.cbRun = cbRun
-        this.cbFinish = cbFinish
+        this.cbCheckFinish = cbCheckFinish
+        this.cbFinished = cbFinished
     }
 
     start() {
         stop()
         this.timer = setInterval(() => {
-            if (this.cbFinish())
+            if (this.cbCheckFinish())
                 this.stop()
             else {
                 this.cbRun()
@@ -18,6 +19,7 @@ class Timer {
 
     stop() {
         if (this.timer) clearInterval(this.timer)
+        if (this.cbFinished) this.cbFinished()
     }
 }
 

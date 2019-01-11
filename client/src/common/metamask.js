@@ -29,7 +29,7 @@ class MetaMask {
                     return this.getNetworkId()
                 })
                 .then(networkId => {
-                    if (networkId == MacroNetworkType.Private) {
+                    if (networkId == MacroNetworkType.Ropsten) {
                         check.network = true
                     }
                 })

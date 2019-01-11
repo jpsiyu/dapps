@@ -11,7 +11,8 @@ class OwnerMe extends React.Component {
 
         this.timer = new Timer(
             () => { this.setState({ timeLeft: this.state.timeLeft - 1 }) },
-            () => { return this.state.timeLeft <= 0 }
+            () => { return this.state.timeLeft <= 0 },
+            () => { window.location.reload() }
         )
     }
 
