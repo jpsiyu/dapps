@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Navigator extends React.Component {
     constructor(props) {
@@ -6,23 +7,16 @@ class Navigator extends React.Component {
     }
 
     render() {
+        const cfg = this.props.cfg
         return <div className='navigator'>
             <div className='part'>
-                {
-                    app.projCfg
-                        ? <img src='/images/home-icon.png' onClick={this.onHomeClick.bind(this)} />
-                        : null
-                }
+                {cfg ? <Link to='/'> <img src='/images/home-icon.png' /> </Link> : null}
             </div>
             <div className='part'>
-                <h2>{app.projCfg ? app.projCfg.name : 'Gallary'}</h2>
+                <h2>{cfg ? cfg.name : 'Gallary'}</h2>
             </div>
             <div className='part'></div>
         </div>
-    }
-
-    onHomeClick() {
-        location.href = location.href.split('?')[0]
     }
 }
 

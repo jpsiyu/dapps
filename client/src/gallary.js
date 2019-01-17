@@ -1,6 +1,7 @@
 import React from 'react'
 import config from './config'
 import qs from 'query-string'
+import { Link } from 'react-router-dom'
 
 class Gallary extends React.Component {
     constructor(props) {
@@ -24,19 +25,15 @@ class GallaryItem extends React.Component {
     }
 
     render() {
-        return <div className='gallary-item' onClick={this.onClick.bind(this)}>
-            {
-                this.props.cfg.img
-                    ? <img src={this.props.cfg.img} />
-                    : <h2>{this.props.cfg.name}</h2>
-            }
-        </div>
-    }
-
-    onClick() {
-        if (!this.props.cfg.target) return
-        const qsRes = qs.stringify({ target: this.props.cfg.target })
-        location.search = qsRes
+        return <Link to={this.props.cfg.link}>
+            <div className='gallary-item'>
+                {
+                    this.props.cfg.img
+                        ? <img src={this.props.cfg.img} />
+                        : <h2>{this.props.cfg.name}</h2>
+                }
+            </div>
+        </Link>
     }
 }
 

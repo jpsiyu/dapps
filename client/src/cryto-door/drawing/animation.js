@@ -1,6 +1,7 @@
 class Animation {
     constructor() {
         this.isDirty = false
+        this.finish = false
         this.frame = this.frame.bind(this)
     }
 
@@ -9,6 +10,7 @@ class Animation {
     }
 
     frame(timestamp) {
+        if (this.finish) return
         this.previous = this.previous || timestamp
         const elapsed = (timestamp - this.previous) / 1000
         this.previous = timestamp
@@ -23,6 +25,10 @@ class Animation {
 
     setDirty() {
         this.isDirty = true
+    }
+
+    end() {
+        this.finish = true
     }
 
 }

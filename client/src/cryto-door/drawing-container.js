@@ -33,6 +33,10 @@ class DrawingContainer extends React.Component {
         
     }
 
+    componentWillUnmount(){
+        projApp.controller.end()
+    }
+
     activeController() {
         projApp.controller.active(this.context)
     }
