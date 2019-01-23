@@ -6,17 +6,21 @@
 
 .cb-entry{
     display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    width: 90%;
+    margin: auto;
 }
 
 .cb-entry .left{
+    padding: 50px 0;
     flex: 1;
-    border-right: 1px gray solid;
-    padding-top: 50px;
+    order: 2;
     position: relative;
 }
 
 .cb-entry .right{
-    padding-top: 50px;
+    order: 1;
     flex: 1;
 }
 
@@ -48,4 +52,20 @@
     width: 20px;
     height: 20px;
     text-align: center;
+}
+
+@media (min-width: 768px){
+    .cb-entry{
+        flex-direction: row;
+    }
+
+    .cb-entry .left{
+        order: 1;
+        border-right: 1px gray solid;
+        padding: none;
+    }
+
+    .cb-entry .right{
+        order: 2;
+    }
 }

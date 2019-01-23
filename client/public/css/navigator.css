@@ -1,4 +1,6 @@
 .navigator{
+    width: 90%;
+    margin: auto;
     height: 50px;
     display: flex;
     border-bottom: 3px gray solid;

@@ -1,6 +1,5 @@
 import React from 'react'
 import config from './config'
-import qs from 'query-string'
 import { Link } from 'react-router-dom'
 
 class Gallary extends React.Component {
