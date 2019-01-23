@@ -16,6 +16,10 @@
     align-items: flex-end;
 }
 
+.navigator h2{
+    white-space: nowrap;
+}
+
 .navigator .part img{
     width: 40px;
     height: 40px;
