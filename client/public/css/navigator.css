@@ -1,19 +1,17 @@
 .navigator{
-    width: 90%;
     margin: auto;
     height: 50px;
     display: flex;
-    border-bottom: 3px gray solid;
-    margin-top: 30px;
-    color: gray;
+    color: white;
     font-weight: bold;
+    background-color: rgb(49, 49, 49);
 }
 
 .navigator .part{
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .navigator h2{

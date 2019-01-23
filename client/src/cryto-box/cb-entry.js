@@ -19,11 +19,11 @@ class CBEntry extends React.Component {
 
     render() {
         return <div className='cb-entry'>
-            <div className='left'>
+            <div className='cont'>
                 <CBBoxCont />
                 <CBPopMgr />
             </div>
-            <div className='right'>
+            <div className='draw'>
                 <CBBoxStatus />
             </div>
         </div>

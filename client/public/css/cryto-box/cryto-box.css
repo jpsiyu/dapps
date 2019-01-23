@@ -12,14 +12,14 @@
     margin: auto;
 }
 
-.cb-entry .left{
+.cb-entry .cont{
     padding: 50px 0;
     flex: 1;
     order: 2;
     position: relative;
 }
 
-.cb-entry .right{
+.cb-entry .draw{
     order: 1;
     flex: 1;
 }
@@ -59,13 +59,13 @@
         flex-direction: row;
     }
 
-    .cb-entry .left{
+    .cb-entry .cont{
         order: 1;
         border-right: 1px gray solid;
-        padding: none;
+        padding: 0;
     }
 
-    .cb-entry .right{
+    .cb-entry .draw{
         order: 2;
     }
 }
