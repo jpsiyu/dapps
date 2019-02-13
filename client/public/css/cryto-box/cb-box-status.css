@@ -8,7 +8,6 @@
 
 .cb-box-ui .title{
     width: 100%;
-    border-bottom: 1px gray solid;
     display: flex;
     justify-content: center;
 }

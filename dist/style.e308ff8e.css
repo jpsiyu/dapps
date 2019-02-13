@@ -61,8 +61,8 @@
 }
 
 .navigator .part img{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 .navigator .part img:hover{
@@ -339,7 +339,6 @@
     display: flex;
     flex-direction: column;
     margin: 20px auto 0px auto;
-    border-bottom: 1px gray solid;
 }
 
 .btn{
@@ -366,7 +365,6 @@
 
 .cb-box-ui .title{
     width: 100%;
-    border-bottom: 1px gray solid;
     display: flex;
     justify-content: center;
 }
@@ -654,7 +652,7 @@
     display: flex;
     flex-direction: column;
     padding-top: 20px;
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
@@ -703,6 +701,7 @@
 @media (min-width: 768px){
     .cb-entry{
         flex-direction: row;
+        width: 90%;
     }
 
     .cb-entry .cont{
@@ -729,6 +728,7 @@
     display: flex;
     justify-content: flex-start;
     width: 80%;
+    white-space: nowrap;
 }
 
 .mm-guide .item{
