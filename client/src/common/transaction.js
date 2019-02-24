@@ -9,9 +9,9 @@ class Transaction {
         clearInterval(this.timer)
     }
 
-    waitTxAccept() {
+    waitTxAccept(objectKey = 'tx') {
         return new Promise((resolve, reject) => {
-            const check = () => this.web3Obj.eth.getTransactionReceipt(this.txMeta.tx, (error, result) => {
+            const check = () => this.web3Obj.eth.getTransactionReceipt(this.txMeta[objectKey], (error, result) => {
                 if (error != null) { reject(error) }
                 else if (result != null && result.status) {
                     console.log('tx accept')
