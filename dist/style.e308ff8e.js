@@ -256,7 +256,22 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/lottery/round.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/lottery/bet.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/lottery/lottery.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./round.css":"css/lottery/round.css","./bet.css":"css/lottery/bet.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -266,7 +281,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./css/entry.css":"css/entry.css","./css/gallary.css":"css/gallary.css","./css/navigator.css":"css/navigator.css","./css/cryto-door/cryto-door.css":"css/cryto-door/cryto-door.css","./css/cryto-box/cryto-box.css":"css/cryto-box/cryto-box.css","./css/simple-ponzi/simple-ponzi.css":"css/simple-ponzi/simple-ponzi.css","./css/mm-guide.css":"css/mm-guide.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./css/entry.css":"css/entry.css","./css/gallary.css":"css/gallary.css","./css/navigator.css":"css/navigator.css","./css/cryto-door/cryto-door.css":"css/cryto-door/cryto-door.css","./css/cryto-box/cryto-box.css":"css/cryto-box/cryto-box.css","./css/simple-ponzi/simple-ponzi.css":"css/simple-ponzi/simple-ponzi.css","./css/lottery/lottery.css":"css/lottery/lottery.css","./css/mm-guide.css":"css/mm-guide.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"../../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -293,7 +308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49666" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55773" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

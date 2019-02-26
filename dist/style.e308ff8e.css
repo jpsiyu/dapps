@@ -802,7 +802,119 @@
     .sp{
         flex-direction: row;
     }
-}.mm-guide{
+}.lo .round{
+    margin-top: 10px;
+}
+
+.lo .mask{
+    position: relative;
+    max-width: 400px;
+    height: 200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.lo .ear{
+    border: 0.5px gray solid;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    background-color: rgba(240,240,240,0.2);
+    color: gray;
+    font-size: 20px;
+}
+
+.lo .ear-l{
+    left: 0;
+}
+
+.lo .ear-r{
+    right: 0;
+}
+
+.lo .round-scroll{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.lo .one-round{
+    border: 1px green dashed;
+    min-width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lo .one-round .pair{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px green dashed;
+}
+
+.lo .btn-draw {
+    margin: 10px;
+    background-color: yellow;
+    padding: 3px 20px;
+    color: gray;
+    font-size: 18px;
+    outline: none;
+}
+
+.lo .drawable{
+    padding: 10px 0;
+    color: gray;
+}.lo .bet{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.lo .hori{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    width: 50%;
+}
+
+.lo .quantity{
+    border-bottom: 1px gray dashed;
+}
+
+.lo .sum{
+    border-bottom: 1px gray dashed;
+}
+
+.lo .quantity-btn{
+    padding: 5px 10px;
+    background-color: lightcoral;
+    color: white;
+    outline: none;
+}
+
+.lo .bet-btn{
+    padding: 5px 10px;
+    background-color: blueviolet;
+    color: white;
+    outline: none;
+
+}
+
+.mm-guide{
     width: 100%;
     height: 100%;
     display: flex;
@@ -837,4 +949,13 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+ 
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currentlysupported by Chrome and Opera */
 }

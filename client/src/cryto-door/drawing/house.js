@@ -1,5 +1,5 @@
 import { MacroMap, MacroDoorState } from '../macro'
-import Animation from './animation'
+import Animation from '../../common/animation'
 
 class House extends Animation {
     constructor(context) {

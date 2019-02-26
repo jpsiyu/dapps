@@ -1,5 +1,5 @@
 import { MacroDoorState } from '../macro'
-import Animation from './animation'
+import Animation from '../../common/animation'
 import { LeftDoor, RightDoor } from './door'
 import House from './house'
 import DrawingBg from './drawing-bg'

@@ -1,4 +1,4 @@
-import Animation from './animation'
+import Animation from '../../common/animation'
 import { MacroDoorState, MacroMap } from '../macro'
 
 class DrawingBg extends Animation {

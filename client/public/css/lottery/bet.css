@@ -1,0 +1,38 @@
+.lo .bet{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.lo .hori{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    width: 50%;
+}
+
+.lo .quantity{
+    border-bottom: 1px gray dashed;
+}
+
+.lo .sum{
+    border-bottom: 1px gray dashed;
+}
+
+.lo .quantity-btn{
+    padding: 5px 10px;
+    background-color: lightcoral;
+    color: white;
+    outline: none;
+}
+
+.lo .bet-btn{
+    padding: 5px 10px;
+    background-color: blueviolet;
+    color: white;
+    outline: none;
+
+}
