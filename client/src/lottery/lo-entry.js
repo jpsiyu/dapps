@@ -2,6 +2,8 @@ import React from 'react'
 import { MacroEvent } from './lo-macro'
 import LORound from './lo-round'
 import LOBet from './lo-bet'
+import MMGuide from '../common/mm-guide'
+import LOWithdraw from './lo-withdraw'
 
 class LoEntry extends React.Component {
     constructor(props) {
@@ -13,10 +15,16 @@ class LoEntry extends React.Component {
 
     render() {
         if (!this.state.active) return null
-        return <div className='lottery lo'>
-            <LORound />
-            <LOBet />
-        </div>
+        else if (!projApp.mmCheck.pass())
+            return <MMGuide />
+        else
+            return <div className='lottery lo'>
+                <LORound />
+                <div className='op'>
+                    <LOWithdraw />
+                    <LOBet />
+                </div>
+            </div>
     }
 
     componentDidMount() {

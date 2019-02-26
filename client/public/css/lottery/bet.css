@@ -1,5 +1,5 @@
 .lo .bet{
-    max-width: 400px;
+    flex: 2;
     margin: auto;
     padding: 20px 0;
     display: flex;
@@ -10,8 +10,8 @@
 .lo .hori{
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
-    width: 50%;
+    padding: 5px;
+    width: 80%;
 }
 
 .lo .quantity{

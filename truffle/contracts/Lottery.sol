@@ -55,7 +55,7 @@ contract Lottery {
     }
     
     function getBalance() public view returns(uint256) {
-        return address(this).balance;
+        return balances[msg.sender];
     }
 
     /** logic */

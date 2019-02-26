@@ -1,0 +1,21 @@
+.lo .withdraw{
+    padding: 20px 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.lo .withdraw .w-desc{
+    color: gray;
+    border-bottom: 1px gray dashed;
+}
+
+.lo .withdraw .w-btn{
+    padding: 5px 10px;
+    margin-top: 10px;
+    outline: none;
+    background-color: darkgoldenrod;
+    color: white;
+}

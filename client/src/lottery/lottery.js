@@ -8,6 +8,7 @@ class Lottery {
         this.ticketPrice = 0
         this.round = 0
         this.allAound = {}
+        this.myBalance = 0
     }
 
     init(provider) {
@@ -25,6 +26,14 @@ class Lottery {
                     const wei = tp.toString()
                     const eth = projApp.metamask.web3.utils.fromWei(wei, 'ether')
                     this.ticketPrice = eth
+                })
+                .then(() => {
+                    return this.txGetBalance()
+                })
+                .then(b => {
+                    const wei = b.toString()
+                    const eth = projApp.metamask.web3.utils.fromWei(wei, 'ether')
+                    this.myBalance = eth
                 })
                 .then(() => {
                     return this.txGetAllRoundInfo()
@@ -75,6 +84,10 @@ class Lottery {
 
     txGetAllRoundInfo() {
         return this.instance.getAllRoundInfo({ from: projApp.metamask.account })
+    }
+
+    txGetBalance() {
+        return this.instance.getBalance({ from: projApp.metamask.account })
     }
 
     /** logic */

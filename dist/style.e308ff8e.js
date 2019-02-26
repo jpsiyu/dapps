@@ -266,12 +266,17 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/lottery/withdraw.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/lottery/lottery.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./round.css":"css/lottery/round.css","./bet.css":"css/lottery/bet.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
+},{"./round.css":"css/lottery/round.css","./bet.css":"css/lottery/bet.css","./withdraw.css":"css/lottery/withdraw.css","_css_loader":"../../node_modules/parcel/src/builtins/css-loader.js"}],"css/mm-guide.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -308,7 +313,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55773" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50024" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
