@@ -7,9 +7,13 @@ class LOWithdraw extends React.Component {
     }
 
     render() {
+        const b = utils.decimal(projApp.lottery.myBalance)
         return <div className='withdraw'>
-            <p className='w-desc'>Your balance: {utils.decimal(projApp.lottery.myBalance)} eth</p>
-            <button className='w-btn' onClick={this.onBtnWithdraw.bind(this)}>Withdraw</button>
+            <p className='w-desc'>Your balance: {b} eth</p>
+            {b > 0
+                ? <button className='w-btn' onClick={this.onBtnWithdraw.bind(this)}>Withdraw</button>
+                : null
+            }
         </div>
     }
 

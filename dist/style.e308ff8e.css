@@ -919,7 +919,7 @@
     outline: none;
 
 }.lo .withdraw{
-    padding: 20px 10px;
+    padding: 20px 5px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -929,6 +929,7 @@
 
 .lo .withdraw .w-desc{
     color: gray;
+    font-size: 14px;
     border-bottom: 1px gray dashed;
 }
 
