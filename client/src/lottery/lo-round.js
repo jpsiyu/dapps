@@ -1,6 +1,7 @@
 import React from 'react'
 import Transaction from '../common/transaction'
 import { MacroSymbol } from './lo-macro'
+import RoundMove from './round-move'
 
 class LORound extends React.Component {
     constructor(props) {
@@ -10,6 +11,8 @@ class LORound extends React.Component {
             position: 0,
         }
         this.step = 400;
+        this.roundMove = new RoundMove()
+        this.roundMove.run()
     }
 
     render() {
@@ -42,18 +45,31 @@ class LORound extends React.Component {
 
     left() {
         if (!this.hasLeft()) return
+        if (this.roundMove.isMoving()) return
         this.setState({
-            position: this.state.position + this.step,
             currentOrder: this.state.currentOrder - 1,
         })
+
+        const newPos = this.state.position + this.step
+        this.roundMove.move(
+            (distance) => { this.setState({ position: this.state.position + distance }) },
+            () => { return this.state.position >= newPos },
+            () => { this.setState({ position: newPos }) }
+        )
     }
 
     right() {
         if (!this.hasRight()) return
+        if (this.roundMove.isMoving()) return
         this.setState({
-            position: this.state.position - this.step,
             currentOrder: this.state.currentOrder + 1,
         })
+        const newPos = this.state.position - this.step
+        this.roundMove.move(
+            (distance) => { this.setState({ position: this.state.position - distance }) },
+            () => { return this.state.position <= newPos },
+            () => { this.setState({ position: newPos }) }
+        )
     }
 }
 
