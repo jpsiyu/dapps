@@ -2,7 +2,7 @@
   "name": "dapps",
   "version": "1.0.0",
   "main": "index.js",
-  "port": "3006",
+  "port": "80",
   "scripts": {
     "start": "nodemon server/app.js -w server",
     "parcel-watch": "parcel watch ./client/public/index.html",
