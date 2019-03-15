@@ -1,11 +1,10 @@
 import ImageMgr from '../lib/image-mgr'
 import EventMgr from '../lib/event-mgr'
-import { MacroEvent } from './macro'
 import DrawingController from './drawing/drawing-controller'
-import MetaMask from '../common/metamask'
 import CrytoDoor from './contract/cryto-door'
 import Utils from './utils'
 import ProjApp from '../common/proj-app'
+import MetaMask from '../common/metamask'
 
 class CDApp extends ProjApp {
     constructor() {
@@ -34,7 +33,7 @@ class CDApp extends ProjApp {
     }
 
 
-    run() {
+    run(end) {
         this.imageMgr.loadImages()
             .then(() => {
                 return this.metamask.init()
@@ -49,7 +48,7 @@ class CDApp extends ProjApp {
                 }
             })
             .then(() => {
-                this.eventMgr.dispatch(MacroEvent.Run)
+                if (end) end()
             })
     }
 

@@ -40,7 +40,7 @@ class MetaMask {
         })
     }
 
-    setAccountChangeCb(cb){
+    setAccountChangeCb(cb) {
         this.accountChangeCb = cb
     }
 
@@ -91,7 +91,7 @@ class MetaMask {
                     const account = accounts[0]
                     if (account != this.account) {
                         clearInterval(this.accountTimer)
-                        if(this.accountChangeCb) this.accountChangeCb()
+                        if (this.accountChangeCb) this.accountChangeCb()
                     }
                 })
         }, 3000)

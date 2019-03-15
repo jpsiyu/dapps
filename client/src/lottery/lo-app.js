@@ -1,8 +1,7 @@
 import ProjApp from '../common/proj-app'
-import MetaMask from '../common/metamask'
 import EventMgr from '../lib/event-mgr'
 import Lottery from './lottery'
-import { MacroEvent } from './lo-macro'
+import MetaMask from '../common/metamask'
 
 class LOApp extends ProjApp {
     constructor(props) {
@@ -13,7 +12,7 @@ class LOApp extends ProjApp {
         this.mmCheck = null
     }
 
-    run() {
+    run(end) {
         this.metamask.init()
             .then(check => {
                 this.mmCheck = check
@@ -28,7 +27,7 @@ class LOApp extends ProjApp {
                 }
             })
             .then(() => {
-                this.eventMgr.dispatch(MacroEvent.Run)
+                if(end) end()
             })
     }
 }

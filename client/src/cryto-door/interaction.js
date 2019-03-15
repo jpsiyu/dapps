@@ -11,7 +11,6 @@ class Interaction extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            show: false,
             showLoading: false,
             noticeMsg: null,
             noticeCb: null,
@@ -19,7 +18,6 @@ class Interaction extends React.Component {
     }
 
     render() {
-        if (!this.state.show) return null
         return <div className='interaction'>
             {projApp.mmCheck.pass()
                 ? this.renderByState()
@@ -57,7 +55,6 @@ class Interaction extends React.Component {
     }
 
     componentDidMount() {
-        projApp.eventMgr.subscribe(MacroEvent.Run, this, this.receRun.bind(this))
         projApp.eventMgr.subscribe(MacroEvent.Loading, this, this.receLoading.bind(this))
         projApp.eventMgr.subscribe(MacroEvent.ContractReload, this, this.receContractReload.bind(this))
         projApp.eventMgr.subscribe(MacroEvent.Notice, this, this.receNotice.bind(this))
@@ -65,7 +62,6 @@ class Interaction extends React.Component {
     }
 
     componentWillMount() {
-        projApp.eventMgr.unsubscribe(MacroEvent.Run, this)
         projApp.eventMgr.unsubscribe(MacroEvent.Loading, this)
         projApp.eventMgr.unsubscribe(MacroEvent.ContractReload, this)
         projApp.eventMgr.unsubscribe(MacroEvent.Notice, this)
@@ -75,13 +71,6 @@ class Interaction extends React.Component {
     receContractReload() {
         this.forceUpdate()
     }
-
-    receRun() {
-        this.setState({
-            show: true
-        })
-    }
-
 
     receLoading(open) {
         this.setState({

@@ -4,6 +4,7 @@ import LORound from './lo-round'
 import LOBet from './lo-bet'
 import MMGuide from '../common/mm-guide'
 import LOWithdraw from './lo-withdraw'
+import LOApp from './lo-app'
 
 class LoEntry extends React.Component {
     constructor(props) {
@@ -13,9 +14,14 @@ class LoEntry extends React.Component {
         }
     }
 
+    componentDidMount() {
+        window.app.resetProjApp(LOApp)
+        window.projApp.run(() => { this.setState({ active: true }) })
+    }
+
     render() {
         if (!this.state.active) return null
-        else if (!projApp.mmCheck.pass())
+        if (!window.projApp.mmCheck.pass())
             return <MMGuide />
         else
             return <div className='lottery lo'>
@@ -25,18 +31,6 @@ class LoEntry extends React.Component {
                     <LOBet />
                 </div>
             </div>
-    }
-
-    componentDidMount() {
-        projApp.eventMgr.subscribe(MacroEvent.Run, this, this.receRun.bind(this))
-    }
-
-    componentWillUnmount() {
-        projApp.eventMgr.unsubscribe(MacroEvent.Run, this)
-    }
-
-    receRun() {
-        this.setState({ active: true })
     }
 }
 

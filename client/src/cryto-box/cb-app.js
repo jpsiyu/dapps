@@ -1,8 +1,7 @@
 import ProjApp from '../common/proj-app'
-import MetaMask from '../common/metamask'
 import EventMgr from '../lib/event-mgr'
 import CrytoBox from './cryto-box'
-import { MacroEvent } from './cb-macro'
+import MetaMask from '../common/metamask'
 
 class CBApp extends ProjApp {
     constructor() {
@@ -13,8 +12,7 @@ class CBApp extends ProjApp {
         this.mmCheck = null
     }
 
-    run() {
-
+    run(end) {
         this.metamask.init()
             .then(check => {
                 this.mmCheck = check
@@ -29,7 +27,7 @@ class CBApp extends ProjApp {
                 }
             })
             .then(() => {
-                this.eventMgr.dispatch(MacroEvent.Run)
+                if (end) end()
             })
     }
 }

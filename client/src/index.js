@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Entry from './entry'
-import App from './app'
+
+class App {
+    resetProjApp(ProjApp) {
+        window.projApp = new ProjApp()
+    }
+}
 
 window.app = new App()
-app.init()
 
 ReactDOM.render(
     <Entry />,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { MacroEvent, MacroMap } from './macro'
+import {  MacroMap } from './macro'
 
 class DrawingContainer extends React.Component {
     constructor(props) {
@@ -26,21 +26,14 @@ class DrawingContainer extends React.Component {
     }
 
     componentDidMount() {
-        projApp.eventMgr.subscribe(MacroEvent.Run, this, this.activeController.bind(this))
-
         this.canvas = this.canvasRef.current
         this.context = this.canvas.getContext('2d')
-        
+        projApp.controller.active(this.context)
     }
 
     componentWillUnmount(){
         projApp.controller.end()
     }
-
-    activeController() {
-        projApp.controller.active(this.context)
-    }
-
 }
 
 export default DrawingContainer

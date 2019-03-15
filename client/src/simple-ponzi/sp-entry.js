@@ -1,7 +1,7 @@
 import React from 'react'
 import MMGuide from '../common/mm-guide'
-import { MacroEvent } from './sp-macro'
 import Transaction from '../common/transaction'
+import SPAPP from './sp-app'
 
 class SPEntry extends React.Component {
     constructor(props) {
@@ -12,11 +12,8 @@ class SPEntry extends React.Component {
     }
 
     componentDidMount() {
-        projApp.eventMgr.subscribe(MacroEvent.Run, this, this.receRun.bind(this))
-    }
-
-    componentWillUnmount() {
-        projApp.eventMgr.unsubscribe(MacroEvent.Run, this)
+        window.app.resetProjApp(SPAPP)
+        window.projApp.run(() => { this.setState({ active: true }) })
     }
 
     render() {

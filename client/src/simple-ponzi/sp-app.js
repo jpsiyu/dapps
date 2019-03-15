@@ -1,8 +1,7 @@
 import ProjApp from '../common/proj-app'
-import MetaMask from '../common/metamask'
 import SimplePonzi from './simple-ponzi'
 import EventMgr from '../lib/event-mgr'
-import { MacroEvent } from './sp-macro'
+import MetaMask from '../common/metamask'
 
 class SPApp extends ProjApp {
     constructor(props) {
@@ -13,7 +12,7 @@ class SPApp extends ProjApp {
         this.mmCheck = null
     }
 
-    run() {
+    run(end) {
         this.metamask.init()
             .then(check => {
                 this.mmCheck = check
@@ -28,7 +27,7 @@ class SPApp extends ProjApp {
                 }
             })
             .then(() => {
-                this.eventMgr.dispatch(MacroEvent.Run)
+                if(end) end()
             })
     }
 }

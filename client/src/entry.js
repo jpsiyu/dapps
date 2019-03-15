@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Gallary from './gallary'
 import Navigator from './navigator'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -37,11 +37,11 @@ class Entry extends React.Component {
     }
 
     renderProj(cfg) {
-        app.resetProjApp(cfg)
         const Comp = cfg.comp
+        const fallback = <div />
         return <EntryWrap>
             <Navigator cfg={cfg} />
-            <Comp />
+            <Suspense fallback={fallback}><Comp /></Suspense>
         </EntryWrap>
     }
 

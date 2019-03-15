@@ -4,11 +4,12 @@
   "main": "index.js",
   "port": "80",
   "scripts": {
-    "start": "node server/app.js",
-    "dev": "nodemon server/app.js -w server",
-    "cdev": "parcel watch ./client/public/index.html",
-    "cbuild": "rm -rf .cache dist && parcel build ./client/public/index.html",
-    "cclear": "rm -rf .cache dist",
+    "start": "go run server/main.go",
+    "dev": "parcel watch ./client/public/index.html",
+    "rawbuild": "parcel build ./client/public/index.html",
+    "build": "npm run clear && npm run rawbuild && npm run res",
+    "clear": "rm -rf .cache dist",
+    "res": "cp -r ./client/public/images ./dist/",
     "docker-build": "docker build -t stephenwu2019/dapps:latest .",
     "docker-run": "docker run -p 3008:80 -d stephenwu2019/dapps:latest"
   },
@@ -17,7 +18,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.16.4",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",

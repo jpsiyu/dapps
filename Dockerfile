@@ -1,13 +1,12 @@
-FROM node:10
+FROM golang:alpine
 
-WORKDIR /dapps
+WORKDIR /go/src/app
+COPY ./package.json /go/src/app
+COPY ./server /go/src/app/server
+COPY ./dist /go/src/app/dist
 
-COPY . /dapps
-
-RUN npm install
-
-RUN npm install -g nodemon
+RUN ls -alR
 
 EXPOSE 80
 
-CMD ["npm", "start"]
+CMD ["go", "run", "./server/main.go"]

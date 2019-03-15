@@ -7,23 +7,17 @@ import Transaction from '../common/transaction'
 class CBBoxCont extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            active: false,
-        }
     }
 
     componentDidMount() {
-        projApp.eventMgr.subscribe(MacroEvent.Run, this, this.receRun.bind(this))
         projApp.eventMgr.subscribe(MacroEvent.ContractReload, this, () => this.forceUpdate())
     }
 
     componentWillUnmount() {
-        projApp.eventMgr.unsubscribe(MacroEvent.Run, this)
         projApp.eventMgr.unsubscribe(MacroEvent.ContractReload, this)
     }
 
     render() {
-        if (!this.state.active) return null
         if (projApp.mmCheck.pass())
             return this.renderCont()
         else

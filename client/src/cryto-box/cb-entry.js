@@ -3,14 +3,20 @@ import CBBoxStatus from './cb-box-status'
 import CBBoxCont from './cb-box-cont'
 import { MacroEvent } from './cb-macro'
 import CBPopMgr from './pop-up/cb-pop-mgr'
+import CBAPP from './cb-app'
 
 class CBEntry extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            active: false
+        }
     }
 
     componentDidMount() {
-        projApp.eventMgr.subscribe(MacroEvent.PopUpLoading, this, this.onRecePopLoading.bind(this))
+        window.app.resetProjApp(CBAPP)
+        window.projApp.eventMgr.subscribe(MacroEvent.PopUpLoading, this, this.onRecePopLoading.bind(this))
+        window.projApp.run(() => { this.setState({ active: true }) })
     }
 
     componentWillUnmount() {
@@ -18,6 +24,7 @@ class CBEntry extends React.Component {
     }
 
     render() {
+        if (!this.state.active) return null
         return <div className='cb-entry'>
             <div className='cont'>
                 <CBBoxCont />
