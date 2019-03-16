@@ -31,10 +31,10 @@ class SPEntry extends React.Component {
                 <h3 className='d-title'>Good Investment Found</h3>
                 <p className='d-detail'>Dear Mr/Mrs, there is a good investment here, it's time to be rich.</p>
                 <p className='d-detail'>We can sure that, give us some time, and more than 10% return will be done.</p>
-                <img src='/images/simple-ponzi/gold.png' />
+                <img src='/static/images/simple-ponzi/gold.png' />
             </div>
             <div className='op'>
-                <img src='/images/simple-ponzi/flower.png' />
+                <img src='/static/images/simple-ponzi/flower.png' />
                 <p className='o-price'>Invest ether: <span>{projApp.simplePonzi.nextInvestValue()}</span> eth</p>
                 <button className='o-btn' onClick={this.onSend.bind(this)}>Invest</button>
                 <div className='balance'>

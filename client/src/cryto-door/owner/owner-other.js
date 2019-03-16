@@ -17,7 +17,7 @@ class OwnerOther extends React.Component {
     render() {
         const timeStr = Utils.timeFormat(this.state.timeLeft)
         return <div className='owner-other'>
-            <img src='/images/cryto-door/unknown.png'></img>
+            <img src='/static/images/cryto-door/unknown.png'></img>
             <p className='desc'>Key is held by other people!</p>
             <p className='left'>Key will be free after:  {timeStr} minutes</p>
         </div>

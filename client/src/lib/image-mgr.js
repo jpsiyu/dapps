@@ -27,7 +27,7 @@ class ImageMgr {
                         resolve()
                     }
                 }
-                image.src = `/images/${imageName}`
+                image.src = `/static/images/${imageName}`
             }
         })
     }

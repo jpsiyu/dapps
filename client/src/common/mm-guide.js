@@ -18,19 +18,19 @@ class MMGuide extends React.Component {
 
             <div className='item'>
                 <p>Use Chrome or Firefox browser</p>
-                <img src={`/images/cryto-door/${imgBrowser}`} />
+                <img src={`/static/images/cryto-door/${imgBrowser}`} />
             </div>
             <div className='item'>
                 <p>Install MetaMask extension</p>
-                <img src={`/images/cryto-door/${imgExtension}`} />
+                <img src={`/static/images/cryto-door/${imgExtension}`} />
             </div>
             <div className='item'>
                 <p>Login MetaMask to unlock account</p>
-                <img src={`/images/cryto-door/${imgUnlock}`} />
+                <img src={`/static/images/cryto-door/${imgUnlock}`} />
             </div>
             <div className='item'>
                 <p>Switch to Ropsten testnet</p>
-                <img src={`/images/cryto-door/${imgNetwork}`} />
+                <img src={`/static/images/cryto-door/${imgNetwork}`} />
             </div>
         </div>
     }

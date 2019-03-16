@@ -22,7 +22,7 @@ class OwnerMe extends React.Component {
             <div className='owner-top'>
                 <div className='owner-top-left'>
                     <p className='left-desc'>Hello, key holder!</p>
-                    <img src='/images/cryto-door/owner-me.png'></img>
+                    <img src='/static/images/cryto-door/owner-me.png'></img>
                 </div>
                 <div className='owner-top-right'>
                     <div className='right-desc'><p>The key will be free after:</p></div>

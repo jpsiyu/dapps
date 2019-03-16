@@ -45,7 +45,7 @@ class CBBoxStatus extends React.Component {
             </div>
             <div className='status'>
                 {info.lock
-                    ? <img src='/images/cryto-box/lock.png' />
+                    ? <img src='/static/images/cryto-box/lock.png' />
                     : null
                 }
             </div>

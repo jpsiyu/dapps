@@ -10,7 +10,7 @@ class Navigator extends React.Component {
         const cfg = this.props.cfg
         return <div className='navigator'>
             <div className='part'>
-                {cfg ? <Link to='/'> <img src='/images/home-icon.png' /> </Link> : null}
+                {cfg ? <Link to='/'> <img src='/static/images/home-icon.png' /> </Link> : null}
             </div>
             <div className='part'>
                 <h2>{cfg ? cfg.name : 'Gallary'}</h2>

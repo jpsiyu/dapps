@@ -7,7 +7,7 @@ class CBPopLoading extends React.Component {
 
     render() {
         return <div className='cb-pop-loading'>
-            <img src='/images/loading.gif' />
+            <img src='/static/images/loading.gif' />
         </div>
     }
 }

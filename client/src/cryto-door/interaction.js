@@ -44,7 +44,7 @@ class Interaction extends React.Component {
 
     renderLoading() {
         return <div className='loading'>
-            <img src='/images/cryto-door/loading.gif' />
+            <img src='/static/images/cryto-door/loading.gif' />
         </div>
     }
 
